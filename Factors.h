@@ -1,3 +1,4 @@
+//Finding HCF and LCM
 double HCF(double a,double b){
 	double c;
 	while(a!=0){

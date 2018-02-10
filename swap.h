@@ -1,3 +1,4 @@
+//Swapping variables
 void swap(double *a,double *b){
     double c,d;
     c=*b;

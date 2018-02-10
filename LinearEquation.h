@@ -4,7 +4,7 @@
 void Linear(){
 
 
-   int n=10;
+   int n=10; //no of variables
    int i,j,k;
    double l,m;
    double z;
@@ -19,19 +19,21 @@ void Linear(){
       scanf(" %d",&n);
       printf("\nEnter the coefficients and constants:\n ");
 
-      double var[n+1][n][n];
-      double in[n][n+1];
-      double d[n+1];
-      double x[n+1];
+      double var[n+1][n][n];     //sub matrix required for Cramer's methon
+      double in[n][n+1];        //coefficient matrix
+      double d[n+1];            //stores determinant of sub matrices
+      double x[n+1];            //solution to the equations
 
    for(i=0;i<n;i++){
 
         for(j=0;j<=n;j++){
 
-            scanf("%lf",&in[i][j]);
+            scanf("%lf",&in[i][j]); //take input of coeff. matrix
 
         }
    }
+
+   //forming sub matrices for Cramers method
    for(A=n;A>=0;A--){
 
         for(i=0;i<n;i++){
@@ -47,29 +49,30 @@ void Linear(){
 
 
 
-
+//Finding determinant of sub matrices by making upper triangular matrix
 for(A=0;A<=n;A++){
         d[A]=1;x[A]=1;
         i=0; j=0;
 while(i<(n-1)){
     k=1;p=1;
     while(k<(n-i)){
-             if(var[A][i][i]==0){
+             if(var[A][i][i]==0){  //checking if the diagonal elements are zero
                 if(p==(n-i)){
                 printf("Infinite or Undefined Solution \n");
                 goto B;
                 }
                 for(o=0;o<n;o++){
 
-                    swap(&var[A][i][o],&var[A][i+p][o]);
+                    swap(&var[A][i][o],&var[A][i+p][o]);  //making diagonal elements non zero by swapping rows
 
                 }
                 p++; continue;
             }
+             //steps for making upper triangular matrix
              l=LCM(var[A][i+k][i],var[A][i][i]);
           l=l/var[A][i][i];
           m=l*var[A][i][i]/var[A][i+k][i];
-            x[A]=x[A]*l*m;
+            x[A]=x[A]*l*m;   //storing the excess multiplication terms
             j=i;
 
         while(j<n){
@@ -83,12 +86,13 @@ while(i<(n-1)){
 }
     for(k=0;k<n;k++){
 
-            d[A]=d[A]*var[A][k][k];
+            d[A]=d[A]*var[A][k][k]; //finding determinant as product of diagonal elements
 
     }
 }
     for(A=0;A<=n;A++){
-       d[A]=d[A]/x[A];
+       d[A]=d[A]/x[A]; //actual determinant
+       //changing columns of determinant of sub matrix to follow cramers rule
        if(A<n){
        if(n%2==0){
             if(A%2==0) d[A]*=(-1);
@@ -99,7 +103,7 @@ while(i<(n-1)){
        }
     }
 
-
+//displaying the solution obtained by cramers method
     for(i=0;i<n;i++){
            z=d[n];
           k=  HCF(d[i],z);

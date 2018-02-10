@@ -1,4 +1,4 @@
-
+//making proper fraction
 
 void pfraction(int *a,int *b){
 	int c,n=*a,d=*b;
