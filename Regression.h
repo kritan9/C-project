@@ -69,7 +69,7 @@ void regression(){
     //Display the equation of best fit
     printf("Equation of best fit line is: y = %.6lf x%c%.6lf ",m,c<0? ' ':'+',c);
 
-    printf("\nCoefficient of correlation = %lf",r);
+    printf("\nCoefficient of correlation = %lf\n",r);
 
     getch();
 }
