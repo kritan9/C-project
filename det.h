@@ -27,6 +27,7 @@ while(i<(y-1)){
                 p++; continue;
             }
 
+
              l=LCM(*(var+i*n+k*n+i),*(var+i*n+i));
           l=l/ *(var+i*n+i);
           m=l* *(var+i*n+i)/ *(var+i*n+k*n+i);

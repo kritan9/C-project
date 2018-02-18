@@ -4,7 +4,7 @@
 void Linear(){
 
 
-   int n=10; //no of variables
+   int n;// number of variables
    int i,j,k;
    double l,m;
    double z;
@@ -19,19 +19,22 @@ void Linear(){
       scanf(" %d",&n);
       printf("\nEnter the coefficients and constants:\n ");
 
-      double var[n+1][n][n];     //sub matrix required for Cramer's methon
-      double in[n][n+1];        //coefficient matrix
-      double d[n+1];            //stores determinant of sub matrices
-      double x[n+1];            //solution to the equations
+      double *var,*in,*d,*x;
+
+      var=(double *)malloc((n+1)*n*n*sizeof(double));   //sub matrix required for Cramer's methon
+      in=(double *)malloc(n*(n+1)*sizeof(double));   //coefficient matrix
+      d=(double *)malloc((n+1)*sizeof(double));            //stores determinant of sub matrices
+      x=(double *)malloc((n+1)*sizeof(double));           //solution to the equations
 
    for(i=0;i<n;i++){
 
         for(j=0;j<=n;j++){
 
-            scanf("%lf",&in[i][j]); //take input of coeff. matrix
+            scanf("%lf",&in[i*(n+1)+j]); //take input of coeff. matrix
 
         }
    }
+
 
    //forming sub matrices for Cramers method
    for(A=n;A>=0;A--){
@@ -40,7 +43,7 @@ void Linear(){
              k=0;
             for(j=0;j<=n;j++){
                 if(j==A) continue;
-                var[A][i][k]=in[i][j];
+                var[A*n*n+i*n+k]=in[i*(n+1)+j];
 
                 k++;
             }
@@ -56,28 +59,28 @@ for(A=0;A<=n;A++){
 while(i<(n-1)){
     k=1;p=1;
     while(k<(n-i)){
-             if(var[A][i][i]==0){  //checking if the diagonal elements are zero
+             if(var[A*n*n+i*n+i]==0){  //checking if the diagonal elements are zero
                 if(p==(n-i)){
                 printf("Infinite or Undefined Solution \n");
                 goto B;
                 }
                 for(o=0;o<n;o++){
 
-                    swap(&var[A][i][o],&var[A][i+p][o]);  //making diagonal elements non zero by swapping rows
+                   var[A*n*n+i*n+o]+=var[A*n*n+(i+p)*n+o];  //making diagonal elements non zero by swapping rows
 
                 }
                 p++; continue;
             }
              //steps for making upper triangular matrix
-             l=LCM(var[A][i+k][i],var[A][i][i]);
-          l=l/var[A][i][i];
-          m=l*var[A][i][i]/var[A][i+k][i];
+             l=LCM(var[A*n*n+(i+k)*n+i],var[A*n*n+i*n+i]);
+          l=l/var[A*n*n+i*n+i];
+          m=l*var[A*n*n+i*n+i]/var[A*n*n+(i+k)*n+i];
             x[A]=x[A]*l*m;   //storing the excess multiplication terms
             j=i;
 
         while(j<n){
-                var[A][i][j]*=l;
-                var[A][i+k][j] = var[A][i+k][j]*m-(var[A][i][j]);
+                var[A*n*n+i*n+j]*=l;
+                var[A*n*n+(i+k)*n+j] = var[A*n*n+(i+k)*n+j]*m-(var[A*n*n+i*n+j]);
                 j++;
               }
               k++;
@@ -86,7 +89,7 @@ while(i<(n-1)){
 }
     for(k=0;k<n;k++){
 
-            d[A]=d[A]*var[A][k][k]; //finding determinant as product of diagonal elements
+            d[A]=d[A]*var[A*n*n+k*n+k]; //finding determinant as product of diagonal elements
 
     }
 }
@@ -115,6 +118,10 @@ while(i<(n-1)){
     }
 
 
+    free(var);
+    free(in);
+    free(d);
+    free(x);
     getch();
 
 }
