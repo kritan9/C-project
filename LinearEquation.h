@@ -12,7 +12,12 @@ void Linear(){
    int o=0;int p;
    double q=1;
    int A;
-   printf("This program solves linear equations of n variables\n How to use?\n-Eg, if you want to solve for 2 variables, say x+y=2 and x-y=0, Enter number of variables 2 then input coefficients in the format\n1 1 2\n1 -1 0\n");
+   system("cls");
+   printf("\t\t-----------------------------------------------------------------------------------\n");
+    printf("\t\t\t\t\t\tWELCOME TO INFINITY\n");
+    printf("\t\t\t\t\tthe Infinite Linear equation solver\n");
+    printf("\t\t-----------------------------------------------------------------------------------");
+   printf("\nThis program solves linear equations of any number of variables\n How to use?\n-Eg, if you want to solve for 2 variables, say x+y=2 and x-y=0, Enter number of variables 2 then input coefficients in the format\n1 1 2\n1 -1 0\n");
 
   B:
       printf("\nEnter the number of variables:\n ");
@@ -72,9 +77,7 @@ while(i<(n-1)){
                 p++; continue;
             }
              //steps for making upper triangular matrix
-             if((int)round(var[A*n*n+(i+k)*n+i])!=0){
              l=LCM(var[A*n*n+(i+k)*n+i],var[A*n*n+i*n+i]);
-
           l=l/var[A*n*n+i*n+i];
           m=l*var[A*n*n+i*n+i]/var[A*n*n+(i+k)*n+i];
             x[A]=x[A]*l*m;   //storing the excess multiplication terms
@@ -84,19 +87,16 @@ while(i<(n-1)){
                 var[A*n*n+i*n+j]*=l;
                 var[A*n*n+(i+k)*n+j] = var[A*n*n+(i+k)*n+j]*m-(var[A*n*n+i*n+j]);
                 j++;
-              }}
+              }
               k++;
     }
     i++;
 }
-
-
     for(k=0;k<n;k++){
 
             d[A]=d[A]*var[A*n*n+k*n+k]; //finding determinant as product of diagonal elements
 
     }
-
 }
     for(A=0;A<=n;A++){
        d[A]=d[A]/x[A]; //actual determinant
@@ -109,7 +109,6 @@ while(i<(n-1)){
         if(A%2!=0) d[A]*=(-1);
        }
        }
-
     }
 
 //displaying the solution obtained by cramers method
@@ -128,7 +127,9 @@ while(i<(n-1)){
     free(in);
     free(d);
     free(x);
-    getch();
+  printf("\n\nWant to solve another set of Linear equations? then press y\nelse press any other key to return to main menu");
+
+    if(getch()=='y') Linear();
 
 }
 

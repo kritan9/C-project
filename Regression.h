@@ -24,7 +24,12 @@ void regression(){
     int n,i,j;
      double *x, *y , r , m , c ,r1,r2,r3,r4;
     A:
-    printf("Enter the number of data ");
+        system("cls");
+         printf("\t\t-----------------------------------------------------------------------------------\n");
+    printf("\t\t\t\t\t\tWELCOME TO INFINITY\n");
+    printf("\t\t\t\t\tCorrelation And Equation Of Best fit Line\n");
+    printf("\t\t-----------------------------------------------------------------------------------");
+    printf("\nEnter the number of data ");
     scanf(" %d",&n);
 
    if(n<=1){ printf("n must be greater than 1\n");
