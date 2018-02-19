@@ -32,7 +32,7 @@ void polynomial(){
     double *p=calloc(n+1,sizeof(double));//array of degrees
     double *rts=calloc(n+1,sizeof(double));//array for roots
 
-    printf("\nEnter coefficient and power as shown below:-\neg: for\n2x^4+3x^2-2 \ntype 2x4  3x2  -2x0\n");
+    printf("\nEnter coefficient and power as shown below:-\neg: for\n2x^4+3x^2-2 \ntype 2x4  3x2  -2x0\n\nf(x) = ");
 
     for(i=0;i<n;i++){
         scanf("%lfx%lf",c+i,p+i);
