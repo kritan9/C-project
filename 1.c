@@ -3,6 +3,7 @@
 #include<stdlib.h>
 float fx(float x,float *c,float *p,int n);
 void main(){
+    int ic=0;
     int n;
     printf("Enter the number of terms in the function:- ");
     scanf("%d",&n);
@@ -33,26 +34,67 @@ void main(){
     }
     printf("\nf'(x)=");
     for(int i=0;i<n;i++){
-
         printf("%.2fx%.2f",c1[i],p1[i]);
     }
     float root(float r){
-    int j=1;
-    for(int i=0;j;i++){
-        if((fx(r,c,p,n)<0.000000000001 && fx(r,c,p,n)>-0.000000000001)||(r==xn(r))){
-            j=0;
-        }else{
-        r=xn(r);
+        int j=1;
+        for(int i=0;j;i++){
+            if((xn(r)-r)<0.0000001 && (xn(r)-r)>-0.0000001){
+                j=0;
+            }
+            r=xn(r);
+            printf("\n%f",r);
+            if(i==150){
+                r=1010;
+                j=0;
+            }
         }
-        if(i==100){
-            printf("\nReal root doesn't exist.");
-            j=0;
+    return r;
+    }
+    int chk;
+    if(fx(-1000,c1,p1,n)<0){
+        chk=0;
+    }
+    else if(fx(-1000,c1,p1,n)>0){
+        chk=1;
+    }
+    int chk1;
+    int co=0;
+    float rts[20];
+    for(int i=-1000;i<=1000;i++){
+        chk1=chk;
+        if(fx(i,c1,p1,n)<0){
+            chk=1;
+        }
+        else if(fx(i,c1,p1,n)>0){
+            chk=0;
+        }
+        if(chk1!=chk){
+            float r=root((float) i);
+            if(r==1010){
+                ic=1;
+            }
+            else{
+                for(int z=0;z<=co;z++){
+                    if(((rts[z]-r)<0.001 && (rts[z]-r)>-0.001)){
+                        z=co+1;
+                    }
+                    else{
+                        if(z==co){
+                            rts[z]=r;
+                        }
+                    }
+                }
+                printf("%d",co);
+                co++;
+            }
         }
     }
-    printf("\nroot :- %.2f",r);
-}
-    for(int i=-1000;i<=1000;i++){
-
+    for(int i=0;rts[i]!='\0';i++){
+        printf("\n%f",rts[i]);
+        if(ic){
+            printf("Some roots doesn't exist.");
+        }
     }
 }
 float fx(float x,float *c,float *p,int n){
