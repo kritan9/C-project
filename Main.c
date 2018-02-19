@@ -11,6 +11,7 @@
 #include "regression.h"
 #include "polynomial.h"
 
+void infinity(int);
 int main(){
     int i,j,k;
     char x;
@@ -22,12 +23,13 @@ int main(){
     char g[]=" 6.Exit";
     char f[58];
     for(i=0;i<57;i++){
-        f[i]='-';
+        f[i]='\xec';
     }
     f[57]=0;
 
 X:
     system("cls");
+    infinity(50);
      printf("\t\t-----------------------------------------------------------------------------------\n");
     printf("\t\t\t\t\t\tWELCOME TO INFINITY\n");
     printf("\t\t\t\tProject:- Equation Solver, Data Analyzer And Matrix Solver\n");
@@ -39,7 +41,7 @@ X:
         printf("\n \t\t\t");
         for(j=0;j<=60;j++){
 
-            if(j==0 || i==0 || j==60 || i==19) printf("*");
+            if(j==0 || i==0 || j==60 || i==19) printf("\xdc");
             else if( i<19 && j==2 &&k==0 ) {
                  k=1;j-=1;
 
@@ -97,5 +99,18 @@ X:
     return 0;
 }
 
+ void infinity(int n){
+        int i,j,k;
+        for(i=0;i<=6;i++){
+            printf("\n");
+            for(k=0;k<n;k++) printf(" ");
+            for(j=0;j<=14;j++){
+                if(((i+j)>=3 && (i-j)>=-4 && (i+j)<=10 && (i-j)<=3 )||((i+j)>=10 && (i-j)<=-4 && (i+j)<=17 && (i-j)>=-11 )) printf("\xdd");
+                else printf(" ");
+            }
 
+        }
+        printf("\n");
+
+ }
 

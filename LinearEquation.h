@@ -13,6 +13,7 @@ void Linear(){
    double q=1;
    int A;
    system("cls");
+   infinity(50);
    printf("\t\t-----------------------------------------------------------------------------------\n");
     printf("\t\t\t\t\t\tWELCOME TO INFINITY\n");
     printf("\t\t\t\t\tthe Infinite Linear equation solver\n");

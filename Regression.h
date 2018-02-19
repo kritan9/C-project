@@ -25,6 +25,7 @@ void regression(){
      double *x, *y , r , m , c ,r1,r2,r3,r4;
     A:
         system("cls");
+        infinity(50);
          printf("\t\t-----------------------------------------------------------------------------------\n");
     printf("\t\t\t\t\t\tWELCOME TO INFINITY\n");
     printf("\t\t\t\t\tCorrelation And Equation Of Best fit Line\n");

@@ -20,6 +20,7 @@ void polynomial(){
     double l;
     int n,i,z,j;
     system("cls");
+    infinity(50);
      printf("\t\t-----------------------------------------------------------------------------------\n");
     printf("\t\t\t\t\t\tWELCOME TO INFINITY\n");
     printf("\t\t\t\tthe infinitely termed non-linear equation solver(if your ram is enough)\n");
