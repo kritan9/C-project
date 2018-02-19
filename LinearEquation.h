@@ -72,7 +72,9 @@ while(i<(n-1)){
                 p++; continue;
             }
              //steps for making upper triangular matrix
+             if((int)round(var[A*n*n+(i+k)*n+i])!=0){
              l=LCM(var[A*n*n+(i+k)*n+i],var[A*n*n+i*n+i]);
+
           l=l/var[A*n*n+i*n+i];
           m=l*var[A*n*n+i*n+i]/var[A*n*n+(i+k)*n+i];
             x[A]=x[A]*l*m;   //storing the excess multiplication terms
@@ -82,16 +84,19 @@ while(i<(n-1)){
                 var[A*n*n+i*n+j]*=l;
                 var[A*n*n+(i+k)*n+j] = var[A*n*n+(i+k)*n+j]*m-(var[A*n*n+i*n+j]);
                 j++;
-              }
+              }}
               k++;
     }
     i++;
 }
+
+
     for(k=0;k<n;k++){
 
             d[A]=d[A]*var[A*n*n+k*n+k]; //finding determinant as product of diagonal elements
 
     }
+
 }
     for(A=0;A<=n;A++){
        d[A]=d[A]/x[A]; //actual determinant
@@ -104,6 +109,7 @@ while(i<(n-1)){
         if(A%2!=0) d[A]*=(-1);
        }
        }
+
     }
 
 //displaying the solution obtained by cramers method
