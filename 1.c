@@ -1,29 +1,33 @@
 #include<stdio.h>
 #include<math.h>
 #include<stdlib.h>
+#include<conio.h>
 void infinity(int);
-void line(int);
+void line2(int);
+void line1(int);
 float fx(float x,float *c,float *p,int n);//prototype for fx function
 void main(){
     infinity(50);
     printf("\n\t\t-------------------------------------------------------------------------------------------------------\n");
     printf("\t\t\t\t\t\tWELCOME TO INFINITY\n");
     printf("\t\tthe infinitly-termed,non-linear(polynomial) equation solver(if your ram is enough)\n");
-    printf("\t\t-------------------------------------------------------------------------------------------------------\n\n\n");
+    printf("\t\t-------------------------------------------------------------------------------------------------------\n");
     int l1=-1000,l2=1000;
     float in=1;
     void main2(){
         top2:
+        clr();
+        //MENUMENU
         printf("\n");
-        printf("\t\t\t\t\t\tMENU");
-        printf("\n\t\t1.Start\n\t\t2.Settings\n\t\t3.About\n\t\tEnter the option's number:-");
         char op=getche();
         switch(op){
         case '2':
+            clr();
             printf("\n\n\t1.Edit the range to check of root.:\n\t2.Edit the range to check.\n\t3.Back\nEnter the option's number: ");
             char op1=getche();
             switch(op1){
             case '1':
+                clr();
                 printf("\n\n\n\nNote: By default the program solves the equation\nto give the root between -1000 and 1000.\n");
                 printf("You can specify the limits here.");
                 printf("Note that everything has pros and cons.\n");
@@ -32,6 +36,7 @@ void main(){
                 scanf("%d %d",l1,l2);
                 break;
             case '2':
+                clr();
                 printf("\n\n\n\nNote: By default the program checks the increasing and decreasing\n nature of curve in an interval of 1 unit.\n");
                 printf("ie if two roots lie within the range of 1 unit then only one root is given.\n");
                 printf("You can specify the range here.\n");
@@ -49,16 +54,17 @@ void main(){
     int ic=0;//imagionary root checker
     int n;
     top:
+    clr();
     printf("\n \t\t\t\t**********************************************************\n");
     printf("\t\t\t\t\tHow to use?\n");
     printf("\t\t\t\t\tFor a equation(in terms of x):\n\t\t\t\t\t2x^4+x^3-31x^2-26x+24=0\n\t\t\t\t\ttype:\n\t\t\t\t\t2x4 +1x3 -31x2 -26x1 +24\n\t\t\t\t\tand press enter.\n");
     printf("\n\n\t\t\t\t\tDEMO::\n\t\t\t\t\tEnter the number of terms in the function: 5\n\n\t\t\t\t\tf(x)= 2x4 1x3 -31x2 -26x1 24x0\n\n\t\t\t\t\t\t[  -3.562    -1.500    0.562    4.000  ]\n\n\n");
     printf("\t\t\t\t**********************************************************\n");
     ic=0;
-    line(16);
+    line1(16);
     printf("\n\t\tEnter the number of terms in the function: ");
     scanf("%d",&n);
-    line(50);
+    line1(50);
     float *c=calloc(n+1,sizeof(float));//array of coefficients
     float *p=calloc(n+1,sizeof(float));//array of degrees
     printf("\n\tf(x)= ");
@@ -66,7 +72,7 @@ void main(){
     for(i=0;i<n;i++){
         scanf(" %fx%f",c+i,p+i);
     }
-    line(50);
+    line1(50);
     float *c1=calloc(n,sizeof(float));//array of coefficients
     float *p1=calloc(n,sizeof(float));//array of degrees
     //derivative of the function
@@ -156,16 +162,16 @@ void main(){
         printf("  %.3f  ",rts[i]);
     }
     printf("]");
-    line(50);
+    line1(50);
     if(ic){
         printf("\n\tSome roots doesn't exist.");
-        line(50);
+        line1(50);
     }
     char yn;
-    line(50);
+    line1(50);
     printf("\n\n\n\tNeed another equation solved?(y/anything else):");
     yn=getche();
-    line(50);
+    line1(50);
     if(yn=='y'){
         goto top;
     }
@@ -192,13 +198,31 @@ float fx(float x,float *c,float *p,int n){
         }
         printf("\n");
  }
- void line(int n){
+ void line2(int n){
     int c=1;
     printf("\n");
     while(c<100){
         if(c<=n){printf(" ");}
-        else{printf("\xa5");}
+        else{printf("\xec");}
         c++;
     }
     printf("\n");
  }
+void line1(int n){
+    int c=1;
+    printf("\n");
+    while(c<100){
+        if(c<=n){printf(" ");}
+        else{printf("\xdc");}
+        c++;
+    }
+    printf("\n");
+ }
+void clr(){
+    system("cls");
+    infinity(50);
+    printf("\n\t\t-------------------------------------------------------------------------------------------------------\n");
+    printf("\t\t\t\t\t\tWELCOME TO INFINITY\n");
+    printf("\t\tthe infinitly-termed,non-linear(polynomial) equation solver(if your ram is enough)\n");
+    printf("\t\t-------------------------------------------------------------------------------------------------------\n");
+}
