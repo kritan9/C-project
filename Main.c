@@ -15,8 +15,8 @@ void infinity(int);
 int main(){
     int i,j,k;
     char x;
-     char a[]=" 1. Linear Equation Solver ";
-     char b[]=" 2. Polynomial Equation Solver ";
+     char a[]=" 1. Infinite Linear Equation Solver ";
+     char b[]=" 2. Infinite Polynomial Equation Solver ";
      char c[]=" 3. Correlation And Equation Of Best fit Line ";
      char d[]=" 4. Data Analysis (Standard Deviation And Error) ";
     char  e[]=" 5. Matrix Problems ";
@@ -30,7 +30,7 @@ int main(){
 X:
     system("cls");
     infinity(50);
-    printf("\t\t-----------------------------------------------------------------------------------\n");
+     printf("\t\t-----------------------------------------------------------------------------------\n");
     printf("\t\t\t\t\t\tWELCOME TO INFINITY\n");
     printf("\t\t\t\tProject:- Equation Solver, Data Analyzer And Matrix Solver\n");
     printf("\t\t-----------------------------------------------------------------------------------");
@@ -111,5 +111,6 @@ X:
 
         }
         printf("\n");
+
  }
 
