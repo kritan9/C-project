@@ -1,9 +1,10 @@
 #include<stdio.h>
 #include<math.h>
 #include<stdlib.h>
-
+void infinity(int);
 float fx(float x,float *c,float *p,int n);//prototype for fx function
 void main(){
+    infinity(50);
     printf("\n\t\t-------------------------------------------------------------------------------------------------------\n");
     printf("\t\t\t\t\t\tWELCOME TO INFINITY\n");
     printf("\t\tthe infinitly-termed,non-linear(polynomial) equation solver(if your ram is enough)\n");
@@ -170,4 +171,16 @@ float fx(float x,float *c,float *p,int n){
         }
         return y;
 }
+ void infinity(int n){
+        int i,j,k;
+        for(i=0;i<=6;i++){
+            printf("\n");
+            for(k=0;k<n;k++) printf(" ");
+            for(j=0;j<=14;j++){
+                if(((i+j)>=3 && (i-j)>=-4 && (i+j)<=10 && (i-j)<=3 )||((i+j)>=10 && (i-j)<=-4 && (i+j)<=17 && (i-j)>=-11 )) printf("\xdd");
+                else printf(" ");
+            }
 
+        }
+        printf("\n");
+ }
