@@ -4,19 +4,59 @@
 
 float fx(float x,float *c,float *p,int n);//prototype for fx function
 void main(){
-    printf("\t\t-----------------------------------------------------------------------------------\n");
+    printf("\n\t\t-------------------------------------------------------------------------------------------------------\n");
     printf("\t\t\t\t\t\tWELCOME TO INFINITY\n");
-    printf("\t\t\t\tthe infinitly termed non-linear equation solver(if your ram is enough)\n");
-    printf("\t\t-----------------------------------------------------------------------------------\n");
+    printf("\t\tthe infinitly-termed,non-linear(polynomial) equation solver(if your ram is enough)\n");
+    printf("\t\t-------------------------------------------------------------------------------------------------------\n\n\n");
+    int l1,l2;
+    float in;
+    void main2(){
+        top2:
+        printf("\n");
+        printf("\t\t\t\t\t\tMENU");
+        printf("\n\t\t1.Start\n\t\t2.Settings\n\t\t3.About\n\t\tEnter the option's number:-");
+        char op=getche();
+        switch(op){
+        case '2':
+            printf("\n\n\t1.Edit the range to check of root.:\n\t2.Edit the range to check.\n\t3.Back\nEnter the option's number: ");
+            char op1=getche();
+            switch(op1){
+            case '1':
+                printf("\n\n\n\nNote: By default the program solves the equation\nto give the root between -1000 and 1000.\n");
+                printf("You can specify the limits here.");
+                printf("Note that everything has pros and cons.\n");
+                printf("High range equals more memory use and slower speed.\n\n");
+                printf("Enter in pattern as range: -1000 1000 NOTE:-1000[space]1000\nrange: ");
+                scanf("%d %d",l1,l2);
+                break;
+            case '2':
+                printf("\n\n\n\nNote: By default the program checks the increasing and decreasing\n nature of curve in an interval of 1 unit.\n");
+                printf("ie if two roots lie within the range of 1 unit then only one root is given.\n");
+                printf("You can specify the range here.\n");
+                printf("Lower the range high accuracy, high memory ugage and slower execution.\nEnter the range: ");
+                scanf("%f",in);
+                break;
+            default:
+                goto top2;
+            }
+
+        }
+
+    }
+    main2();
     int ic=0;//imagionary root checker
     int n;
     top:
+    printf("\n \t\t\t\t**********************************************************\n");
+    printf("\t\t\t\t\tHow to use?\n");
+    printf("\t\t\t\t\tFor a equation(let it be in terms of x):\n\t\t\t\t\t2x\n");
+    printf("\t\t\t\t**********************************************************\n");
     ic=0;
     printf("\nEnter the number of terms in the function:- ");
     scanf("%d",&n);
     float *c=calloc(n+1,sizeof(float));//array of coefficients
     float *p=calloc(n+1,sizeof(float));//array of degrees
-    printf("\nEnter coefficient and power as shown below:-\n\t\t\teg: for\n\t\t\t\t2x^4 \n\t\t\t\ttype 2 4\n\t\t\t\t[NOTE:-2(space)4].\n");
+    printf("\nEnter coefficient and power as shown below:-\neg: for\n2x^4 \ntype 2 4\n[NOTE:-2(space)4].\n\n");
     int i;
     for(i=0;i<n;i++){
         scanf("%f %f",c+i,p+i);
@@ -38,12 +78,12 @@ void main(){
     //printing fx
     printf("\nf(x)=");
     for(i=0;i<n;i++){
-        printf("(%c%.2f)x(%c%.2f) ",((c[i]<0)?' ':'+'),c[i],(c[i],(p[i]<0)?' ':'+'),p[i]);
+        printf("%c%.2fx(%c%.2f) ",((c[i]<0)?' ':'+'),c[i],(c[i],(p[i]<0)?' ':'+'),p[i]);
     }
     //printinf f'x
     printf("\nf'(x)=");
     for(i=0;i<n;i++){
-        printf("%.2fx%.2f",c1[i],p1[i]);
+        printf("%c%.2fx(%c%.2f) ",((c1[i]<0)?' ':'+'),c1[i],(c1[i],(p1[i]<0)?' ':'+'),p1[i]);
     }
     //finding apporiate value of root
     float root(float r){
@@ -71,17 +111,18 @@ void main(){
     int chk1;
     int co=0;//the number of times function root is called
     float rts[20];//array of roots
-    for(i=-1000;i<=1000;i++){
+    int i1=0;
+    for(i1=-1000;i1<=1000;i1++){
         chk1=chk;
-        if(fx(i,c1,p1,n)<0){
+        if(fx(i1,c1,p1,n)<0){
             chk=1;
         }
-        else if(fx(i,c1,p1,n)>0){
+        else if(fx(i1,c1,p1,n)>0){
             chk=0;
         }
         //this condition is true when a curve changes its increasing or decreasing order
         if(chk1!=chk){
-            float r=root((float) i);
+            float r=root((float) i1);
             //this condition is true when root is imagionary
             if(r==1010){
                 ic=1;//imagionary coefficient is true
@@ -104,14 +145,16 @@ void main(){
         }
     }
     //displaying roots
+    printf("\n\n\t[");
     for(i=0;rts[i]!='\0';i++){
-        printf("\n%.3f",rts[i]);
-        if(ic){
-            printf("Some roots doesn't exist.");
-        }
+        printf("\t%.3f",rts[i]);
+    }
+    printf("]");
+    if(ic){
+        printf("\nSome roots doesn't exist.");
     }
     char yn;
-    printf("\n\n\n\nNeed another equation solved?(y/anything else):");
+    printf("\n\n\n\n  Need another equation solved?(y/anything else):");
     yn=getche();
     if(yn=='y'){
         goto top;
