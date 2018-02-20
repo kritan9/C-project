@@ -10,11 +10,6 @@ void clr();
 void main2();
 float fx(float x,float *c,float *p,int n);//prototype for fx function
 void main(){
-    infinity(50);
-    printf("\n\t\t-------------------------------------------------------------------------------------------------------\n");
-    printf("\t\t\t\t\t\tWELCOME TO INFINITY\n");
-    printf("\t\tthe infinitly-termed,non-linear(polynomial) equation solver(if your ram is enough)\n");
-    printf("\t\t-------------------------------------------------------------------------------------------------------\n");
     int l1=-1000,l2=1000;
     float in=1;
     void main2(){
@@ -22,7 +17,7 @@ void main(){
         clr();
         printf("\t\t\t\t\t\tSelect an option...\n");
         //MENUMENU
-        menu(32,2,"1.Start","2.Settings","Settings","Settings","Settings","Settings","Settings");
+        menu(32,3,"1.Start","2.Settings","3.Back","Settings","Settings","Settings","Settings");
         printf("\n\t\t\t\t");
         char op=getche();
         switch(op){
@@ -63,12 +58,13 @@ void main(){
                 goto top2;
             }
 
+
         }
 
     }
     top2:
     main2();
-    int ic=0;//imagionary root checker
+    int ic;//imagionary root checker
     int n;
     top:
     clr();
@@ -104,8 +100,9 @@ void main(){
     float xn(float r){
     return (r-(fx(r,c,p,n)/fx(r,c1,p1,n)));
     }
+    /*
     //printing fx
-    /*printf("\nf(x)=");
+    printf("\nf(x)=");
     for(i=0;i<n;i++){
         printf("%c%.2fx(%c%.2f) ",((c[i]<0)?' ':'+'),c[i],(c[i],(p[i]<0)?' ':'+'),p[i]);
     }
@@ -131,16 +128,17 @@ void main(){
     }
     //checking the increasing and decreasing order of the curve
     int chk;
-    if(fx(-1000,c1,p1,n)<0){
+    float aa=fx(-1000,c1,p1,n);
+    if(aa<0){
         chk=0;
     }
-    else if(fx(-1000,c1,p1,n)>0){
+    else if(aa>0){
         chk=1;
     }
     int chk1;
     int co=0;//the number of times function root is called
-    float rts[20];//array of roots
-    int i1=0;
+    float *rts=malloc(10*sizeof(float));//array of roots
+    float i1;
     for(i1=l1;i1<=l2;i1=i1+in){
         chk1=chk;
         if(fx(i1,c1,p1,n)<0){
@@ -151,7 +149,7 @@ void main(){
         }
         //this condition is true when a curve changes its increasing or decreasing order
         if(chk1!=chk){
-            float r=root((float) i1);
+            float r=root(i1);
             //this condition is true when root is imagionary
             if(r==1010101010){
                 ic=1;//imagionary coefficient is true
@@ -184,6 +182,7 @@ void main(){
         printf("\n\tSome roots doesn't exist.");
         line1(50);
     }
+    free(rts);
     char yn;
     line1(50);
     printf("\n\n\n\tNeed another equation solved?(y/anything else):");
@@ -195,6 +194,7 @@ void main(){
     else{
         goto top2;
     }
+//eop:
 }
 //value of fx when x is given
 float fx(float x,float *c,float *p,int n){
