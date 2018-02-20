@@ -48,7 +48,7 @@ int main(){
      printf("\n\nDeterminant of Matrix is %d .\n",determinant(ask,odr));
         break;
     case '2':
-                printf("Enter the order of matrix whose inverse you want to find.\n");
+                printf("Enter the order of matrix whose inverse you want to find.\nExample: for 3 X 3 oder press 3<space>3 and press enter!!\n");
                 scanf("%d %d", &row, &col);
                 if(row==col){
                 printf("Enter the elements of %d X %d matrix : \n", row, col);
