@@ -8,8 +8,8 @@ void main(){
     printf("\t\t\t\t\t\tWELCOME TO INFINITY\n");
     printf("\t\tthe infinitly-termed,non-linear(polynomial) equation solver(if your ram is enough)\n");
     printf("\t\t-------------------------------------------------------------------------------------------------------\n\n\n");
-    int l1,l2;
-    float in;
+    int l1=-1000,l2=1000;
+    float in=1;
     void main2(){
         top2:
         printf("\n");
@@ -112,7 +112,8 @@ void main(){
     int co=0;//the number of times function root is called
     float rts[20];//array of roots
     int i1=0;
-    for(i1=-1000;i1<=1000;i1++){
+    printf("%d %d %f",l1,l2,in);
+    for(i1=l1;i1<=l2;i1=i1+in){
         chk1=chk;
         if(fx(i1,c1,p1,n)<0){
             chk=1;
