@@ -8,6 +8,14 @@ double fx(double x,double *c,double *p,int n){
         }
         return y;
 }
+
+//check if root exists between two values
+int chkrt(double a,double b,double *c,double *p,int n){
+    if((fx(a,c,p,n)>0 && fx(b,c,p,n)<0) || (fx(a,c,p,n)<0 && fx(b,c,p,n)>0)) return 1;
+    else if(fx(a,c,p,n)==0) return 2;
+    else return 0;
+    }
+
 //comparing two double type values
 int compare(double a,double b){
     if( (a-b)<0.0001 && (a-b)>-0.0001 ) return 0;
@@ -17,7 +25,7 @@ int compare(double a,double b){
 
 void polynomial(){
 
-    double l;
+    double l,l1=-5000,l2=5000,l3=0.05;
     int n,i,z,j;
     system("cls");
     infinity(50);
@@ -93,16 +101,19 @@ void polynomial(){
     else j=1;
 
     //iteration for roots
-    for(l=-5000;l<=5000;l+=0.05){
-        if((der(l-0.05)!=der(l))&& der(l)!=0) {  //checking condition for finding a different root
+    for(l=l1;l<=l2;l+=l3){
+        if(((der(l-l3)!=der(l))&& der(l)!=0) || chkrt(l,l-l3,c,p,n)>0) {  //checking condition for finding a different root
 
              temp=root(l);
+             if(chkrt(l,l-0.05,c,p,n)==2)
+              temp=l;
+
 
             if(compare(temp,10010)!=0){
               z=j;
               if(j==0) {rts[j]=temp; j++;}
               while(z!=0){
-                if(!compare(temp,rts[z])) break;
+                if(!compare(temp,rts[z-1])) break;
                 z--;
               }
               if(z==0 && j!=0) {

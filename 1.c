@@ -2,9 +2,12 @@
 #include<math.h>
 #include<stdlib.h>
 #include<conio.h>
-void infinity(int);
+#include<string.h>
+#include "menu.h"
 void line2(int);
 void line1(int);
+void clr();
+void main2();
 float fx(float x,float *c,float *p,int n);//prototype for fx function
 void main(){
     infinity(50);
@@ -17,23 +20,33 @@ void main(){
     void main2(){
         top2:
         clr();
+        printf("\t\t\t\t\t\tSelect an option...\n");
         //MENUMENU
-        printf("\n");
+        menu(32,2,"1.Start","2.Settings","Settings","Settings","Settings","Settings","Settings");
+        printf("\n\t\t\t\t");
         char op=getche();
         switch(op){
         case '2':
+            top3:
             clr();
-            printf("\n\n\t1.Edit the range to check of root.:\n\t2.Edit the range to check.\n\t3.Back\nEnter the option's number: ");
+            printf("\t\t\t\t\t\tSelect an option...\n");
+            //MENUMENU
+            menu(32,3,"1.Enter the approx range of roots.","2.Enter the approx minimum value of difference of two roots.","\t  Press any other key to go back","Settings","Settings","Settings","Settings");
+            printf("\n\t\t\t\t");
             char op1=getche();
             switch(op1){
             case '1':
                 clr();
-                printf("\n\n\n\nNote: By default the program solves the equation\nto give the root between -1000 and 1000.\n");
-                printf("You can specify the limits here.");
-                printf("Note that everything has pros and cons.\n");
-                printf("High range equals more memory use and slower speed.\n\n");
-                printf("Enter in pattern as range: -1000 1000 NOTE:-1000[space]1000\nrange: ");
-                scanf("%d %d",l1,l2);
+                menu(32,1,"1.Enter the approx range of roots.","a","a","a","a","a","a");
+                line1(32);
+                printf("\n\n\t\t\t\tNote: By default the program solves the equation\n\t\t\t\tto give the root between -1000 and 1000.\n");
+                printf("\t\t\t\tYou can specify the limits here.\n");
+                printf("\t\t\t\tNote that everything has pros and cons.\n");
+                printf("\t\t\t\tHigh range equals more memory use and more execution time.\n\n");
+                line1(32);
+                printf("\n\t\t\t\tEnter in pattern as range: -1000 1000\n\t\t\t\tNOTE:-1000[space]1000\n\t\t\t\trange: ");
+                scanf("%d %d",&l1,&l2);
+                goto top3;
                 break;
             case '2':
                 clr();
@@ -41,7 +54,10 @@ void main(){
                 printf("ie if two roots lie within the range of 1 unit then only one root is given.\n");
                 printf("You can specify the range here.\n");
                 printf("Lower the range high accuracy, high memory ugage and slower execution.\nEnter the range: ");
-                scanf("%f",in);
+                scanf("%f",&in);
+                printf("\nPress any key to go back");
+                getch();
+                goto top3;
                 break;
             default:
                 goto top2;
@@ -50,6 +66,7 @@ void main(){
         }
 
     }
+    top2:
     main2();
     int ic=0;//imagionary root checker
     int n;
@@ -172,8 +189,11 @@ void main(){
     printf("\n\n\n\tNeed another equation solved?(y/anything else):");
     yn=getche();
     line1(50);
-    if(yn=='y'){
+    if(yn=='y'||yn=='Y'){
         goto top;
+    }
+    else{
+        goto top2;
     }
 }
 //value of fx when x is given
@@ -185,23 +205,10 @@ float fx(float x,float *c,float *p,int n){
         }
         return y;
 }
- void infinity(int n){
-        int i,j,k;
-        for(i=0;i<=6;i++){
-            printf("\n");
-            for(k=0;k<n;k++) printf(" ");
-            for(j=0;j<=14;j++){
-                if(((i+j)>=3 && (i-j)>=-4 && (i+j)<=10 && (i-j)<=3 )||((i+j)>=10 && (i-j)<=-4 && (i+j)<=17 && (i-j)>=-11 )) printf("\xdd");
-                else printf(" ");
-            }
-
-        }
-        printf("\n");
- }
  void line2(int n){
     int c=1;
     printf("\n");
-    while(c<100){
+    while(c<94){
         if(c<=n){printf(" ");}
         else{printf("\xec");}
         c++;
@@ -211,7 +218,7 @@ float fx(float x,float *c,float *p,int n){
 void line1(int n){
     int c=1;
     printf("\n");
-    while(c<100){
+    while(c<94){
         if(c<=n){printf(" ");}
         else{printf("\xdc");}
         c++;
