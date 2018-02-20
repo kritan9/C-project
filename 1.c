@@ -35,22 +35,29 @@ void main(){
                 menu(32,1,"1.Enter the approx range of roots.","a","a","a","a","a","a");
                 line1(32);
                 printf("\n\n\t\t\t\tNote: By default the program solves the equation\n\t\t\t\tto give the root between -1000 and 1000.\n");
-                printf("\t\t\t\tYou can specify the limits here.\n");
-                printf("\t\t\t\tNote that everything has pros and cons.\n");
+                printf("\t\t\t\tSorry for the inconvenience. You can specify the limits here.\n");
+                printf("\t\t\t\tNote that:\n");
                 printf("\t\t\t\tHigh range equals more memory use and more execution time.\n\n");
                 line1(32);
                 printf("\n\t\t\t\tEnter in pattern as range: -1000 1000\n\t\t\t\tNOTE:-1000[space]1000\n\t\t\t\trange: ");
                 scanf("%d %d",&l1,&l2);
+                printf("\n\t\t\t\tPress any key to go back");
+                getch();
                 goto top3;
                 break;
             case '2':
                 clr();
-                printf("\n\n\n\nNote: By default the program checks the increasing and decreasing\n nature of curve in an interval of 1 unit.\n");
-                printf("ie if two roots lie within the range of 1 unit then only one root is given.\n");
-                printf("You can specify the range here.\n");
-                printf("Lower the range high accuracy, high memory ugage and slower execution.\nEnter the range: ");
+                menu(32,1,"2.Enter the approx minimum value of difference of two roots.","a","a","a","a","a","a");
+                line1(32);
+                printf("\n\n\t\t\t\tNote: By default the program checks increasing and decreasing\n\t\t\t\tnature of curve in an interval of 1 unit.\n");
+                printf("\t\t\t\tie if 3 roots lie within 1 unit interval the program \n\t\t\t\tdetects only one.\n");
+                printf("\t\t\t\tSorry for the inconvenience. You can change the interval here.\n");
+                printf("\t\t\t\tNote that:\n");
+                printf("\t\t\t\tLower interval equals more memory use and more execution time.\n\n");
+                line1(32);
+                printf("\n\t\t\t\tEnter the interval: ");
                 scanf("%f",&in);
-                printf("\nPress any key to go back");
+                printf("\n\t\t\t\tPress any key to go back");
                 getch();
                 goto top3;
                 break;
@@ -74,18 +81,16 @@ void main(){
     printf("\n\n\t\t\t\t\tDEMO::\n\t\t\t\t\tEnter the number of terms in the function: 5\n\n\t\t\t\t\tf(x)= 2x4 1x3 -31x2 -26x1 24x0\n\n\t\t\t\t\t\t[  -3.562    -1.500    0.562    4.000  ]\n\n\n");
     printf("\t\t\t\t**********************************************************\n");
     ic=0;
-    line1(16);
+    line1(32);
     printf("\n\t\tEnter the number of terms in the function: ");
     scanf("%d",&n);
-    line1(50);
     float *c=calloc(n+1,sizeof(float));//array of coefficients
     float *p=calloc(n+1,sizeof(float));//array of degrees
-    printf("\n\tf(x)= ");
+    printf("\n\t\tf(x)= ");
     int i;
     for(i=0;i<n;i++){
         scanf(" %fx%f",c+i,p+i);
     }
-    line1(50);
     float *c1=calloc(n,sizeof(float));//array of coefficients
     float *p1=calloc(n,sizeof(float));//array of degrees
     //derivative of the function
@@ -172,22 +177,20 @@ void main(){
         }
     }
     //displaying roots
-    printf("\n\n\t\t[");
+    printf("\n\n\t\t\t[");
     for(i=0;rts[i]!='\0';i++){
         printf("  %.3f  ",rts[i]);
     }
     printf("]");
-    line1(50);
+    line1(32);
     if(ic){
         printf("\n\tSome roots doesn't exist.");
-        line1(50);
+        line1(32);
     }
     free(rts);
     char yn;
-    line1(50);
-    printf("\n\n\n\tNeed another equation solved?(y/anything else):");
+    printf("\n\n\t\tNeed another equation solved?(y/anything else):");
     yn=getche();
-    line1(50);
     if(yn=='y'||yn=='Y'){
         goto top;
     }
