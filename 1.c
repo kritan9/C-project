@@ -2,6 +2,7 @@
 #include<math.h>
 #include<stdlib.h>
 void infinity(int);
+void line(int);
 float fx(float x,float *c,float *p,int n);//prototype for fx function
 void main(){
     infinity(50);
@@ -50,18 +51,22 @@ void main(){
     top:
     printf("\n \t\t\t\t**********************************************************\n");
     printf("\t\t\t\t\tHow to use?\n");
-    printf("\t\t\t\t\tFor a equation(let it be in terms of x):\n\t\t\t\t\t2x\n");
+    printf("\t\t\t\t\tFor a equation(in terms of x):\n\t\t\t\t\t2x^4+x^3-31x^2-26x+24=0\n\t\t\t\t\ttype:\n\t\t\t\t\t2x4 +1x3 -31x2 -26x1 +24\n\t\t\t\t\tand press enter.\n");
+    printf("\n\n\t\t\t\t\tDEMO::\n\t\t\t\t\tEnter the number of terms in the function: 5\n\n\t\t\t\t\tf(x)= 2x4 1x3 -31x2 -26x1 24x0\n\n\t\t\t\t\t\t[  -3.562    -1.500    0.562    4.000  ]\n\n\n");
     printf("\t\t\t\t**********************************************************\n");
     ic=0;
-    printf("\nEnter the number of terms in the function:- ");
+    line(16);
+    printf("\n\t\tEnter the number of terms in the function: ");
     scanf("%d",&n);
+    line(50);
     float *c=calloc(n+1,sizeof(float));//array of coefficients
     float *p=calloc(n+1,sizeof(float));//array of degrees
-    printf("\nEnter coefficient and power as shown below:-\neg: for\n2x^4 \ntype 2 4\n[NOTE:-2(space)4].\n\n");
+    printf("\n\tf(x)= ");
     int i;
     for(i=0;i<n;i++){
-        scanf("%f %f",c+i,p+i);
+        scanf(" %fx%f",c+i,p+i);
     }
+    line(50);
     float *c1=calloc(n,sizeof(float));//array of coefficients
     float *p1=calloc(n,sizeof(float));//array of degrees
     //derivative of the function
@@ -77,7 +82,7 @@ void main(){
     return (r-(fx(r,c,p,n)/fx(r,c1,p1,n)));
     }
     //printing fx
-    printf("\nf(x)=");
+    /*printf("\nf(x)=");
     for(i=0;i<n;i++){
         printf("%c%.2fx(%c%.2f) ",((c[i]<0)?' ':'+'),c[i],(c[i],(p[i]<0)?' ':'+'),p[i]);
     }
@@ -85,7 +90,7 @@ void main(){
     printf("\nf'(x)=");
     for(i=0;i<n;i++){
         printf("%c%.2fx(%c%.2f) ",((c1[i]<0)?' ':'+'),c1[i],(c1[i],(p1[i]<0)?' ':'+'),p1[i]);
-    }
+    }*/
     //finding apporiate value of root
     float root(float r){
         int j=1;
@@ -95,7 +100,7 @@ void main(){
             }
             r=xn(r);
             if(i==150){
-                r=1010;
+                r=1010101010;
                 j=0;
             }
         }
@@ -113,7 +118,6 @@ void main(){
     int co=0;//the number of times function root is called
     float rts[20];//array of roots
     int i1=0;
-    printf("%d %d %f",l1,l2,in);
     for(i1=l1;i1<=l2;i1=i1+in){
         chk1=chk;
         if(fx(i1,c1,p1,n)<0){
@@ -126,7 +130,7 @@ void main(){
         if(chk1!=chk){
             float r=root((float) i1);
             //this condition is true when root is imagionary
-            if(r==1010){
+            if(r==1010101010){
                 ic=1;//imagionary coefficient is true
             }
             else{
@@ -147,17 +151,21 @@ void main(){
         }
     }
     //displaying roots
-    printf("\n\n\t[");
+    printf("\n\n\t\t[");
     for(i=0;rts[i]!='\0';i++){
-        printf("\t%.3f",rts[i]);
+        printf("  %.3f  ",rts[i]);
     }
     printf("]");
+    line(50);
     if(ic){
-        printf("\nSome roots doesn't exist.");
+        printf("\n\tSome roots doesn't exist.");
+        line(50);
     }
     char yn;
-    printf("\n\n\n\n  Need another equation solved?(y/anything else):");
+    line(50);
+    printf("\n\n\n\tNeed another equation solved?(y/anything else):");
     yn=getche();
+    line(50);
     if(yn=='y'){
         goto top;
     }
@@ -183,4 +191,14 @@ float fx(float x,float *c,float *p,int n){
 
         }
         printf("\n");
+ }
+ void line(int n){
+    int c=1;
+    printf("\n");
+    while(c<100){
+        if(c<=n){printf(" ");}
+        else{printf("\xa5");}
+        c++;
+    }
+    printf("\n");
  }
