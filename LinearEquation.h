@@ -21,9 +21,16 @@ void Linear(){
    printf("\nThis program solves linear equations of any number of variables\n How to use?\n-Eg, if you want to solve for 2 variables, say x+y=2 and x-y=0, Enter number of variables 2 then input coefficients in the format\n1 1 2\n1 -1 0\n");
 
   B:
-      printf("\nEnter the number of variables:\n ");
+      line1(15,90);
+      printf("\n"); line(15,0);
+     printf("Enter the number of variables \n");
+    line1(15,90); printf("\n"); line1(15,0);
       scanf(" %d",&n);
-      printf("\nEnter the coefficients and constants:\n ");
+      line1(15,90);
+      printf("\n"); line(15,0);
+       printf("Enter the coefficients and constants \n");
+       line1(15,90); printf("\n"); line(15,0);
+
 
       double *var,*in,*d,*x;
 
@@ -37,7 +44,7 @@ void Linear(){
         for(j=0;j<=n;j++){
 
             scanf("%lf",&in[i*(n+1)+j]); //take input of coeff. matrix
-
+            if(j==n) line(15,0);
         }
    }
 
@@ -117,19 +124,32 @@ while(i<(n-1)){
            z=d[n];
           k=  HCF(d[i],z);
      d[i]/=k; z/=k;
-        if(z>0)
-        printf("\n x%d = %.0lf /%.0lf = %lf",i+1,d[i],z,d[i]/z);
-        else  printf("\n x%d = %.0lf /%.0lf = %lf",i+1,(-1)*d[i],(-1)*z,d[i]/z);
+        if(z>0){
+        printf("\n");
+        line(15,90); printf("\n");line(15,0);
+        printf(" x%d = %.0lf /%.0lf = %lf",i+1,d[i],z,d[i]/z);
+        }
+        else  {
+                 printf("\n");
+            line(15,90); printf("\n");line(15,0);
+                printf(" x%d = %.0lf /%.0lf = %lf",i+1,(-1)*d[i],(-1)*z,d[i]/z);
+        }
 
     }
+    printf("\n");  line(15,90);
+    printf("\n\n");
 
 
     free(var);
     free(in);
     free(d);
     free(x);
-  printf("\n\nWant to solve another set of Linear equations? then press y\nelse press any other key to return to main menu");
-
+    printf("\n");
+    line1(15,90); printf("\n");line(15,0);
+  printf("Want to solve another set of Linear equations?->Press y \n");
+    line1(15,90); printf("\n");     line(15,0);
+  printf("Main Menu-> any other key\n");
+    line1(15,90); printf("\n");
     if(getch()=='y') Linear();
 
 }

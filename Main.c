@@ -14,16 +14,18 @@
 
 
 
+
 int main(){
     int i,j,k;
     char x;
-     char a[]=" 1. Infinite Linear Equation Solver ";
-     char b[]=" 2. Infinite Polynomial Equation Solver ";
-     char c[]=" 3. Correlation And Equation Of Best fit Line ";
-     char d[]=" 4. Data Analysis (Standard Deviation And Error) ";
-    char  e[]=" 5. Matrix Problems ";
-    char g[]=" 7.Exit";
-    char l[]=" 6.About";
+    menustr a[7];
+    strcpy(a[0].s," 1. Infinite Linear Equation Solver ");
+    strcpy(a[1].s," 2. Infinite Polynomial Equation Solver ");
+    strcpy(a[2].s," 3. Correlation And Equation Of Best fit Line ");
+    strcpy(a[3].s," 4. Data Analysis (Standard Deviation And Error)  ");
+    strcpy(a[4].s," 5. Matrix Problems ");
+    strcpy(a[5].s," 6.About");
+    strcpy(a[6].s," 7.Exit");
 
 
 X:
@@ -34,7 +36,8 @@ X:
     printf("\t\t\t\tProject:- Equation Solver, Data Analyzer And Matrix Solver\n");
     printf("\t\t-----------------------------------------------------------------------------------");
     printf("\n\n\t\t\t\t\t\tSelect an Option\n");
-    menu(28,7,a,b,c,d,e,l,g);
+    menu(28,60,7,a);
+
 
     printf("\n\t\t\t");
     x=getch();

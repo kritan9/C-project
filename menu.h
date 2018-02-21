@@ -1,62 +1,34 @@
-void menu(int n,int m,char*a,char*b,char*c,char*d,char*e,char*g,char*h){
-    char f[58];
-    int i,j,k;
-    for(i=0;i<57;i++){
+
+//options in main menu
+typedef struct {
+    char s[150];
+} menustr;
+
+//main menu table
+void menu(int n,int o,int m,menustr *a){  //x coordinate, width, no of Options, structure
+    char f[o-2];
+    int i,j,k,l=0;
+    for(i=0;i<(o-3);i++){
         f[i]='\xec';
     }
-    f[57]=0;
+    f[o-3]=0;
     for(i=0;i<=(3*m+1);i++){
             k=0;
         printf("\n");
         for(j=0;j<n;j++) printf(" ");
-        for(j=0;j<=60;j++){
+        for(j=0;j<=o;j++){
 
-            if(j==0 || i==0 || j==60 || i==(3*m+1)) printf("\xdc");
+            if(j==0 || i==0 || j==o || i==(3*m+1)) printf("\xdc");
             else if( i<(3*m) && j==2 &&k==0 ) {
                  k=1;j-=1;
+                if(i%3==0){ printf("%s",f);
+                            j+=strlen(f);
+                }
+                if(i%3==2){printf("%s",a[l].s);
+                            j+=strlen(a[l].s);
+                            l++;
+                            }
 
-                 switch(i){
-
-                case 2 : printf("%s",a);
-                        j+=strlen(a);
-                        break;
-                case 3:  printf("%s",f);
-                        j+=strlen(f);
-                        break;
-                case 5 : printf("%s",b);
-                        j+=strlen(b);
-                         break;
-                 case 6:  printf("%s",f);
-                        j+=strlen(f);
-                        break;
-                case 8 : printf("%s",c);
-                        j+=strlen(c);
-                         break;
-                 case 9:  printf("%s",f);
-                        j+=strlen(f);
-                        break;
-                case 11 : printf("%s",d);
-                        j+=strlen(d);
-                         break;
-                 case 12:  printf("%s",f);
-                        j+=strlen(f);
-                        break;
-                case 14 : printf("%s",e);
-                        j+=strlen(e);
-                         break;
-                 case 15:  printf("%s",f);
-                        j+=strlen(f);
-                        break;
-                  case 17 : printf("%s",g);
-                        j+=strlen(g);
-                         break;
-                case 18:  printf("%s",f);
-                        j+=strlen(f);
-                        break;
-                  case 20 : printf("%s",h);
-                        j+=strlen(h);
-                         break;
-                 }
 
 
             }
@@ -64,9 +36,25 @@ void menu(int n,int m,char*a,char*b,char*c,char*d,char*e,char*g,char*h){
         }
 
     }
+    printf("\n");
 }
 
+void line(int a,int b){
+    int i;
+    for(i=0;i<(a+b);i++){
+        if(i<a) printf(" ");
+        else printf("\xdc");
+    }
+}
+void line1(int a,int b){
+    int i;
+    for(i=0;i<(a+b);i++){
+        if(i<a) printf(" ");
+        else printf("\xec");
+    }
+}
 
+//Infinity Logo
  void infinity(int n){
         int i,j,k;
         for(i=0;i<=6;i++){
