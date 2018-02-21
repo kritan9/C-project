@@ -21,15 +21,15 @@ void Linear(){
    printf("\nThis program solves linear equations of any number of variables\n How to use?\n-Eg, if you want to solve for 2 variables, say x+y=2 and x-y=0, Enter number of variables 2 then input coefficients in the format\n1 1 2\n1 -1 0\n");
 
   B:
-      line1(15,90);
+      lineb(15,90);
       printf("\n"); line(15,0);
      printf("Enter the number of variables \n");
-    line1(15,90); printf("\n"); line1(15,0);
+    lineb(15,90); printf("\n"); lineb(15,0);
       scanf(" %d",&n);
-      line1(15,90);
+      lineb(15,90);
       printf("\n"); line(15,0);
        printf("Enter the coefficients and constants \n");
-       line1(15,90); printf("\n"); line(15,0);
+       lineb(15,90); printf("\n"); line(15,0);
 
 
       double *var,*in,*d,*x;
@@ -145,11 +145,11 @@ while(i<(n-1)){
     free(d);
     free(x);
     printf("\n");
-    line1(15,90); printf("\n");line(15,0);
+    lineb(15,90); printf("\n");line(15,0);
   printf("Want to solve another set of Linear equations?->Press y \n");
-    line1(15,90); printf("\n");     line(15,0);
+    lineb(15,90); printf("\n");     line(15,0);
   printf("Main Menu-> any other key\n");
-    line1(15,90); printf("\n");
+    lineb(15,90); printf("\n");
     if(getch()=='y') Linear();
 
 }

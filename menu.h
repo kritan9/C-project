@@ -46,7 +46,7 @@ void line(int a,int b){
         else printf("\xdc");
     }
 }
-void line1(int a,int b){
+void lineb(int a,int b){
     int i;
     for(i=0;i<(a+b);i++){
         if(i<a) printf(" ");
@@ -69,4 +69,27 @@ void line1(int a,int b){
         printf("\n");
 
  }
+
+ void line2(int n){
+    int c=1;
+    printf("\n");
+    while(c<94){
+        if(c<=n){printf(" ");}
+        else{printf("\xec");}
+        c++;
+    }
+    printf("\n");
+ }
+void line1(int n){
+    int c=1;
+    printf("\n");
+    while(c<94){
+        if(c<=n){printf(" ");}
+        else{printf("\xdc");}
+        c++;
+    }
+    printf("\n");
+ }
+
+
 
