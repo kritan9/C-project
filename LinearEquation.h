@@ -1,17 +1,35 @@
+int compare(double a,double b);
 
+int infl(double a){
+
+        int k,l,m=0;
+        l=(int)(a*1000000);
+        k=l%1000000;
+        while(k!=0){
+        m=m*10+(k%10);
+        k/=10;
+
+    }
+        if(m<0) m*=(-1);
+        if(m==0) return 0;
+        else {
+                return (int)(1+(int)log10(m));}
+
+}
 
 
 void Linear(){
 
 
    int n;// number of variables
-   int i,j,k;
+   int i,j,k=0;
    double l,m;
    double z;
    int r,t;
    int o=0;int p;
    double q=1;
    int A;
+     B:
    system("cls");
    infinity(50);
    printf("\t\t-----------------------------------------------------------------------------------\n");
@@ -20,7 +38,6 @@ void Linear(){
     printf("\t\t-----------------------------------------------------------------------------------");
    printf("\nThis program solves linear equations of any number of variables\n How to use?\n-Eg, if you want to solve for 2 variables, say x+y=2 and x-y=0, Enter number of variables 2 then input coefficients in the format\n1 1 2\n1 -1 0\n");
 
-  B:
       lineb(15,90);
       printf("\n"); line(15,0);
      printf("Enter the number of variables \n");
@@ -40,12 +57,20 @@ void Linear(){
       x=(double *)malloc((n+1)*sizeof(double));           //solution to the equations
 
    for(i=0;i<n;i++){
-
+        k=0;
         for(j=0;j<=n;j++){
 
             scanf("%lf",&in[i*(n+1)+j]); //take input of coeff. matrix
+            if(k<infl(in[i*(n+1)+j])){
+                    k=infl(in[i*(n+1)+j]);
+            }
             if(j==n) line(15,0);
+
         }
+        if(k){
+            for(j=0;j<=n;j++) in[i*(n+1)+j]*=pow(10,k);
+        }
+
    }
 
 
@@ -122,17 +147,28 @@ while(i<(n-1)){
 //displaying the solution obtained by cramers method
     for(i=0;i<n;i++){
            z=d[n];
+           if(compare(z,0)==0){
+            printf("Error! ");
+            getch();
+            goto B;
+           }
           k=  HCF(d[i],z);
+
      d[i]/=k; z/=k;
         if(z>0){
         printf("\n");
         line(15,90); printf("\n");line(15,0);
-        printf(" x%d = %.0lf /%.0lf = %lf",i+1,d[i],z,d[i]/z);
+        if(compare(round(d[i])/round(z),d[i]/z)==0)
+            printf(" x%d = %.0lf /%.0lf = %lf",i+1,d[i],z,d[i]/z);
+        else printf(" x%d = %lf",i+1,d[i]/z);
         }
         else  {
                  printf("\n");
             line(15,90); printf("\n");line(15,0);
+            if(compare(round(d[i])/round(z),d[i]/z)==0)
                 printf(" x%d = %.0lf /%.0lf = %lf",i+1,(-1)*d[i],(-1)*z,d[i]/z);
+            else
+                printf(" x%d = %lf",i+1,d[i]/z);
         }
 
     }

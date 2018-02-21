@@ -35,8 +35,9 @@ void polynomial(){
 
     double l,l1=-5000,l2=5000,in=0.1;
     int n,i,z,j;
+    int opt=0;
     system("cls");
-    menustr mn[3];
+    menustr mn[4];
     void main2(){
         top2:
         clr();
@@ -45,8 +46,9 @@ void polynomial(){
 
         strcpy(mn[0].s,"1.Start");
         strcpy(mn[1].s,"2.Settings");
-        strcpy(mn[2].s,"3.Back");
-        menu(40,30,3,mn);
+        strcpy(mn[2].s,"3.History");
+        strcpy(mn[3].s,"4.Back");
+        menu(40,30,4,mn);
         printf("\n\t\t\t\t");
         char op=getche();
         switch(op){
@@ -98,13 +100,22 @@ void polynomial(){
             default:
                 goto top2;
             }
+            case '1': break;
 
+            case '4': opt=1;
+                      break;
+            case '3': opt=3;
+                        break;
 
+            default : main2();
         }
 
     }
+
     top2:
     main2();
+    if(opt==1) goto _back;
+    if(opt==3) goto filework;
      top:
     clr();
     printf("\n \t\t\t\t**********************************************************\n");
@@ -227,6 +238,12 @@ void polynomial(){
     else{
         goto top2;
     }
+
+    filework:
+
+
+    _back:
+    printf(" ");
 }
 
 
