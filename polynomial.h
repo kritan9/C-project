@@ -109,7 +109,7 @@ void polynomial(){
     clr();
     printf("\n \t\t\t\t**********************************************************\n");
     printf("\t\t\t\t\tHow to use?\n");
-    printf("\t\t\t\t\tFor a equation(in terms of x):\n\t\t\t\t\t2x^4+x^3-31x^2-26x+24=0\n\t\t\t\t\ttype:\n\t\t\t\t\t2x4 +1x3 -31x2 -26x1 +24\n\t\t\t\t\tand press enter.\n");
+    printf("\t\t\t\t\tFor a equation(in terms of x):\n\t\t\t\t\t2x^4+x^3-31x^2-26x+24=0\n\t\t\t\t\ttype:\n\t\t\t\t\t2x4 +1x3 -31x2 -26x1 +24x0\n\t\t\t\t\tand press enter.\n");
     printf("\n\n\t\t\t\t\tDEMO::\n\t\t\t\t\tEnter the number of terms in the function: 5\n\n\t\t\t\t\tf(x)= 2x4 1x3 -31x2 -26x1 24x0\n\n\t\t\t\t\t\t[  -3.561533    -1.500000    0.561553    4.000000  ]\n\n\n");
     printf("\t\t\t\t**********************************************************\n");
     line1(32);
