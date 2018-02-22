@@ -176,7 +176,7 @@ void polynomial(){
     double temp;
    double *c=calloc(n+1,sizeof(double));//array of coefficients
     double *p=calloc(n+1,sizeof(double));//array of degrees
-    double *rts=calloc(n+1,sizeof(double));//array for roots
+    double rts[20];//array for roots
     printf("\n\t\tf(x)= ");
     fprintf(fptr,"\n~\t\tf(x)= ");
     for(i=0;i<n;i++){
@@ -224,7 +224,7 @@ void polynomial(){
     }
 
     //finding increasing decreasing nature of function
-    double der(double a){
+    int der(double a){
         double l;
        l=fx(a,c1,p1,n);
        if(l>0) return 1;
@@ -234,7 +234,6 @@ void polynomial(){
 
     j=0;
     rts[j]=root(-1000);
-
     if(compare(rts[j],1010101010)==0)  j=0;
     else j=1;
 
@@ -243,20 +242,24 @@ void polynomial(){
         if(((der(l-in)!=der(l))&& der(l)!=0) || chkrt(l,l-in,c,p,n)>0) {  //checking condition for finding a different root
 
              temp=root(l);
-            /* if(chkrt(l,l-in,c,p,n)==2)
-              temp=l;*/
+            if(chkrt(l,l-in,c,p,n)==2)
+              temp=l;
 
 
             if(compare(temp,1010101010)!=0){
-              z=j;
               if(j==0) {rts[j]=temp; j++;}
+              z=j;
               while(z!=0){
-                if(!compare(temp,rts[z-1])) break;
+                if(compare(temp,rts[z-1])==0) break;
                 z--;
+                 printf(" z=%d ",z);
               }
+
               if(z==0 && j!=0) {
+
                     rts[j]=temp;
                     j++;
+
               }
             }
 
