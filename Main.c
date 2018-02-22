@@ -11,7 +11,7 @@
 #include "LinearEquation.h"
 #include "regression.h"
 #include "polynomial.h"
-
+#include "buy.h"
 
 
 
@@ -23,7 +23,7 @@ int main(){
     strcpy(a[1].s," 2. Infinite Polynomial Equation Solver ");
     strcpy(a[2].s," 3. Correlation And Equation Of Best fit Line ");
     strcpy(a[3].s," 4. Data Analysis (Standard Deviation And Error)  ");
-    strcpy(a[4].s," 5. Matrix Problems ");
+    strcpy(a[4].s," 5. Welcome to Matrix");
     strcpy(a[5].s," 6.About");
     strcpy(a[6].s," 7.Exit");
 
@@ -31,7 +31,7 @@ int main(){
 X:
     system("cls");
     infinity(50);
-     printf("\t\t-----------------------------------------------------------------------------------\n");
+    printf("\t\t-----------------------------------------------------------------------------------\n");
     printf("\t\t\t\t\t\tWELCOME TO INFINITY\n");
     printf("\t\t\t\tProject:- Equation Solver, Data Analyzer And Matrix Solver\n");
     printf("\t\t-----------------------------------------------------------------------------------");
@@ -44,6 +44,9 @@ X:
    if(x=='1') Linear();
     if(x=='3') regression();
     if(x=='2') polynomial();
+    if(x=='4') buy();
+    if(x=='5') buy();
+    if(x=='6') buy();
     if(x=='7') goto Y;
     goto X;
     Y:

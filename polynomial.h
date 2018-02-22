@@ -92,7 +92,7 @@ void polynomial(){
         strcpy(mn[1].s,"2.Settings");
         strcpy(mn[2].s,"3.History");
         strcpy(mn[3].s,"4.Back");
-        menu(40,30,4,mn);
+        menu(28,60,4,mn);
         printf("\n\t\t\t\t");
         char op=getche();
         switch(op){
