@@ -12,7 +12,7 @@
 #include "regression.h"
 #include "polynomial.h"
 #include "buy.h"
-
+#include "about.h"
 
 
 int main(){
@@ -46,7 +46,7 @@ X:
     if(x=='2') polynomial();
     if(x=='4') buy();
     if(x=='5') buy();
-    if(x=='6') buy();
+    if(x=='6') about();
     if(x=='7') goto Y;
     goto X;
     Y:
