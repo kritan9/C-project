@@ -51,7 +51,8 @@ void regression(){
     logoreg();
     printf("\n");
     lineb(15,90); printf("\n");line(15,0);
-    printf("Enter the number of data ");
+    printf("Enter the number of data \n");
+    lineb(15,90);  printf("\n"); line(15,0);
     scanf(" %d",&n);
 
    if(n<=1){
@@ -59,6 +60,9 @@ void regression(){
             lineb(15,90); printf("\n");line(15,0);
             printf("n must be greater than 1\n");
             lineb(15,90);printf("\n");
+            line(15,0);
+            printf("Press any key to continue.");
+            getch();
             goto Start;
    }
    //allocating size of array
@@ -75,10 +79,12 @@ void regression(){
     //Taking input of x
     printf("\n");
     lineb(15,90); printf("\n");line(15,0);
-    printf("Enter the values of x: ");
+    printf("Enter the values of x: \n");
+    lineb(15,90);  printf("\n"); line(15,0);
     for(i=0;i<n;i++){
 
         scanf(" %lf",x+i);
+        line(15,0);
         fprintf(fptr,"%7.2lf|",x[i]);
     }
     fprintf(fptr,"\n \t\t\ty:\t");
@@ -86,10 +92,12 @@ void regression(){
     //Taking input of y
     printf("\n");
     lineb(15,90); printf("\n");line(15,0);
-     printf("Enter the values of y: ");
+     printf("Enter the values of y: \n");
+     lineb(15,90);  printf("\n"); line(15,0);
     for(i=0;i<n;i++){
 
         scanf(" %lf",y+i);
+        line(15,0);
          fprintf(fptr,"%7.2lf|",y[i]);
     }
     printf("\n\n");

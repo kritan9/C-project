@@ -12,6 +12,7 @@
 #include "regression.h"
 #include "polynomial.h"
 #include "history.h"
+#include "stat.h"
 #include "buy.h"
 #include "about.h"
 
@@ -45,7 +46,7 @@ X:
    if(x=='1') Linear();
     if(x=='3') regression();
     if(x=='2') polynomial();
-    if(x=='4') buy();
+    if(x=='4') sd();
     if(x=='5') buy();
     if(x=='6') about();
     if(x=='7') goto Y;
