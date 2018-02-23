@@ -11,6 +11,7 @@
 #include "LinearEquation.h"
 #include "regression.h"
 #include "polynomial.h"
+#include "history.h"
 #include "buy.h"
 #include "about.h"
 
