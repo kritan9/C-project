@@ -1,45 +1,6 @@
-void poly(FILE *fptr,int n,int m,int page){
-        char ch;
-        fptr=fopen("polynomial.txt","r");
-        fseek(fptr,-1,2); //current just before
-        int i=0,j=0,k;
-        k=ftell(fptr);
-
-            while(j<(page*n+m)){
-                    fseek(fptr,k,0);
-                if((ch=fgetc(fptr))=='~') j++;
-                k--;
-            }
-            if(m!=0) n=m;
-       while(1){
-            ch=fgetc(fptr);
-            if(ch==EOF){ break;}
-            if(ch=='~'){ i++;
-                if(i>=n) break;
-            }
-            else  printf("%c",ch);
 
 
-       }
-       fclose(fptr);
-
-}
-int popage(FILE *fptr){
-     char ch;
-     int i=0;
-        fptr=fopen("polynomial.txt","r");
-        fseek(fptr,0,0); //current at beginning
-         while(1){
-            ch=fgetc(fptr);
-            if(ch=='~') i++;
-            if(ch==EOF) break;
-
-         }
-         fclose(fptr);
-    return i;
-}
-
-void clr(){
+void logopoly(){
     system("cls");
     infinity(50);
     printf("\n\t\t-------------------------------------------------------------------------------------------------------\n");
@@ -74,7 +35,6 @@ int compare(double a,double b){
 
 void polynomial(){
 
-    int fi; char fic;
     double l,l1=-1000,l2=1000,in=1;
     FILE *fptr;
     int n,i,z,j;
@@ -84,7 +44,7 @@ void polynomial(){
     void main2(){
         opt=0;
         top2:
-        clr();
+        logopoly();
         printf("\t\t\t\t\t\tSelect an option...\n");
         //MENUMENU
 
@@ -98,7 +58,7 @@ void polynomial(){
         switch(op){
         case '2':
             top3:
-            clr();
+            logopoly();
             printf("\t\t\t\t\t\tSelect an option...\n");
             //MENUMENU
              strcpy(mn[0].s,"1.Enter the approx range of roots.");
@@ -109,7 +69,7 @@ void polynomial(){
             char op1=getche();
             switch(op1){
             case '1':
-                clr();
+                logopoly();
                 strcpy(mn[0].s,"1.Enter the approx range of roots.");
                 menu(32,strlen(mn[0].s)+10,1,mn);
                 line1(32);
@@ -125,7 +85,7 @@ void polynomial(){
                 goto top3;
                 break;
             case '2':
-                clr();
+                logopoly();
                 strcpy(mn[0].s,"2.Enter the approx minimum value of difference of two roots.");
                 menu(32,strlen(mn[0].s)+5,1,mn);
                 line1(32);
@@ -161,7 +121,7 @@ void polynomial(){
     if(opt==1) goto _back;
     if(opt==3) goto filework;
      top:
-    clr();
+    logopoly();
     printf("\n \t\t\t\t**********************************************************\n");
     printf("\t\t\t\t\tHow to use?\n");
     printf("\t\t\t\t\tFor a equation(in terms of x):\n\t\t\t\t\t2x^4+x^3-31x^2-26x+24=0\n\t\t\t\t\ttype:\n\t\t\t\t\t2x4 +1x3 -31x2 -26x1 +24x0\n\t\t\t\t\tand press enter.\n");
@@ -294,95 +254,8 @@ void polynomial(){
     }
     //displaying history
     filework:
-       fi=0;i=0;
-       fi=popage(fptr);
-       j=fi%5;
-       fi/=5;
-        while(1){
-       if(fi==0 && j==0){
-        clr();
-        printf("\t\t\t\t\t\tNo History\n\t\t\t\t\tPress any key to go back");
-        getch();
+       history(fptr,'p');
         goto top2;
-       }
-        else if(fi==0){
-           clr();
-             lineb(15,90); printf("\n");line(15,0);
-            printf("Back to menu-> Press any key\n");
-             lineb(15,90); printf("\n"); line(15,0);
-            printf("Page %d of %d\n",i+1,j==0? fi:fi+1);
-            poly(fptr,5,j,fi);
-              fic=getch();
-             goto top2;
-       }
-
-        if(i==0 && j==0){
-        clr();
-        lineb(15,90); printf("\n"); lineb(15,0);
-        printf("Back to menu->Press any key\n");
-        lineb(15,90); printf("\n"); line(15,0);
-        printf("Page %d of %d\n",i+1,j==0? fi:fi+1);
-        poly(fptr,5,0,i+1);
-        fic=getch();
-        goto top2;
-       }
-      else if(i==0){
-        clr();
-        lineb(15,90); printf("\n");line(15,0);
-        printf("Next page->Press + \n");
-        lineb(15,90); printf("\n"); lineb(15,0);
-        printf("Back to menu-> any other key\n");
-        lineb(15,90); printf("\n"); line(15,0);
-        printf("Page %d of %d\n",i+1,j==0? fi:fi+1);
-        poly(fptr,5,0,i+1);
-        fic=getch();
-       if(fic=='+') i++;
-       else goto top2;
-       }
-       if(i<(fi-1)){
-           clr();
-            lineb(15,90); printf("\n");line(15,0);
-            printf(" Next page->Press + \n\t\tPrevious page->Press -\n");
-            lineb(15,90); printf("\n");     line(15,0);
-            printf("Back to menu-> any other key\n");
-             lineb(15,90); printf("\n"); line(15,0);
-            printf("Page %d of %d\n",i+1,j==0? fi:fi+1);
-            poly(fptr,5,0,i+1);
-              fic=getch();
-            if(fic=='+') i++;
-            else if(fic=='-') i--;
-            else goto top2;
-       }
-    if(i==(fi-1)) {
-           clr();
-             lineb(15,90); printf("\n");line(15,0);
-             if(j!=0) printf(" Next page->Press + \n\t\t");
-            printf("Previous page->Press - \n");
-            lineb(15,90); printf("\n");     line(15,0);
-            printf("Back to menu-> any other key\n");
-             lineb(15,90); printf("\n"); line(15,0);
-            printf("Page %d of %d\n",i+1,j==0? fi:fi+1);
-            poly(fptr,5,0,i+1);
-              fic=getch();
-            if(fic=='-') i--;
-            else if (j!=0 && fic=='+') i++;
-            else goto top2;
-       }
-       if(i==fi){
-             clr();
-             lineb(15,90); printf("\n");line(15,0);
-            printf("Previous page->Press - \n");
-            lineb(15,90); printf("\n");     line(15,0);
-            printf("Back to menu-> any other key\n");
-             lineb(15,90); printf("\n"); line(15,0);
-            printf("Page %d of %d\n",i+1,j==0? fi:fi+1);
-            poly(fptr,5,j,fi);
-              fic=getch();
-            if(fic=='-') i--;
-            else goto top2;
-       }
-        }
-
 
     _back:
     printf(" ");

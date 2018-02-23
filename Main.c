@@ -6,13 +6,14 @@
 #include "menu.h"
 #include "Factors.h"
 #include "properfraction.h"
-#include "det.h"
 #include "swap.h"
 #include "LinearEquation.h"
 #include "regression.h"
 #include "polynomial.h"
-
-
+#include "history.h"
+#include "about.h"
+#include "stat.h"
+#include "matrix.h"
 
 
 int main(){
@@ -34,17 +35,21 @@ X:
      printf("\t\t-----------------------------------------------------------------------------------\n");
     printf("\t\t\t\t\t\tWELCOME TO INFINITY\n");
     printf("\t\t\t\tProject:- Equation Solver, Data Analyzer And Matrix Solver\n");
-    printf("\t\t-----------------------------------------------------------------------------------");
-    printf("\n\n\t\t\t\t\t\tSelect an Option\n");
+    printf("\t\t-----------------------------------------------------------------------------------\n");
+    printf("\t\t\t\t\t\tSelect an Option\n");
     menu(28,60,7,a);
 
 
     printf("\n\t\t\t");
     x=getch();
-   if(x=='1') Linear();
-    if(x=='3') regression();
-    if(x=='2') polynomial();
-    if(x=='7') goto Y;
+    if(x=='1') Linear();
+    else if(x=='3') regression();
+    else if(x=='2') polynomial();
+    else if(x=='7') goto Y;
+    else if(x=='6') about();
+    else if(x=='4') sd();
+    else if(x=='5') mat();
+
     goto X;
     Y:
     return 0;

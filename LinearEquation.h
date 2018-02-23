@@ -1,6 +1,6 @@
 int compare(double a,double b);
 
-void logo(){
+void logolinear(){
      system("cls");
    infinity(50);
    printf("\t\t-----------------------------------------------------------------------------------\n");
@@ -8,51 +8,9 @@ void logo(){
     printf("\t\t\t\t\tthe Infinite Linear equation solver\n");
     printf("\t\t-----------------------------------------------------------------------------------\n");
 
-
-
 }
 
-void lin(FILE *fptr,int n,int m,int page){
-        char ch;
-        fptr=fopen("Linear.txt","r");
-        fseek(fptr,-1,2); //current just before
-        int i=0,j=0,k;
-        k=ftell(fptr);
-
-            while(j<(page*n+m)){
-                    fseek(fptr,k,0);
-                if((ch=fgetc(fptr))=='~') j++;
-                k--;
-            }
-            if(m!=0) n=m;
-       while(1){
-            ch=fgetc(fptr);
-            if(ch==EOF){ break;}
-            if(ch=='~'){ i++;
-                if(i>=n) break;
-            }
-            else  printf("%c",ch);
-
-
-       }
-       fclose(fptr);
-
-}
-int lipage(FILE *fptr){
-     char ch;
-     int i=0;
-        fptr=fopen("Linear.txt","r");
-        fseek(fptr,0,0); //current at beginning
-         while(1){
-            ch=fgetc(fptr);
-            if(ch=='~') i++;
-            if(ch==EOF) break;
-
-         }
-         fclose(fptr);
-    return i;
-}
-
+//checks the significant figures
 int infl(double a){
 
         int k,l,m=0;
@@ -73,9 +31,7 @@ int infl(double a){
 
 void Linear(){
 
-
    int n;// number of variables
-   int fi; char fic; //variables for file handling work
    int i,j,k=0;
    double l,m;
    double z;
@@ -91,16 +47,18 @@ void Linear(){
     strcpy(mn[2].s,"3.Back");
 
      B:
-    logo();
+    logolinear();
      printf("\n\n");
+     printf("\t\t\t\t\t\tSelect an Option\n");
      menu(40,30,3,mn);
     op=getch();
     if(op=='3'){goto EOP;}
     else if(op=='1'){}
     else if(op=='2'){goto fileworks;}
     else{goto B;}
+
     Start:
-    logo();
+    logolinear();
    printf("\nThis program solves linear equations of any number of variables\n How to use?\n-Eg, if you want to solve for 2 variables, say x+y=2 and x-y=0, Enter number of variables 2 then input coefficients in the format\n1 1 2\n1 -1 0\n");
 
    fptr=fopen("Linear.txt","a+");
@@ -173,8 +131,8 @@ while(i<(n-1)){
     while(k<(n-i)){
              if(compare(var[A*n*n+i*n+i],0)==0){  //checking if the diagonal elements are zero
                 if(p==(n-i)){
-                printf("Error! Infinite or Undefined Solution \n");
-                 fprintf(fptr,"Error! Infinite or Undefined Solution \n");
+                printf("Error! \n");
+                 fprintf(fptr,"Error! \n");
                 goto B;
                 }
                 for(o=0;o<n;o++){
@@ -239,9 +197,9 @@ while(i<(n-1)){
         line(15,90); printf("\n");line(15,0);
         if(compare(round(d[i])/round(z),d[i]/z)==0){
             printf(" x%d = %.0lf /%.0lf = %lf",i+1,d[i],z,d[i]/z);
-            fprintf(fptr," x%d = %.0lf /%.0lf = %lf",i+1,d[i],z,d[i]/z);}
+            fprintf(fptr,"\t\t x%d = %.0lf /%.0lf = %lf",i+1,d[i],z,d[i]/z);}
         else{ printf(" x%d = %lf",i+1,d[i]/z);
-            fprintf(fptr," x%d = %lf",i+1,d[i]/z);
+            fprintf(fptr,"\t\t x%d = %lf",i+1,d[i]/z);
         }
         }
         else  {
@@ -250,11 +208,11 @@ while(i<(n-1)){
             line(15,90); printf("\n");line(15,0);
             if(compare(round(d[i])/round(z),d[i]/z)==0){
                 printf(" x%d = %.0lf /%.0lf = %lf",i+1,(-1)*d[i],(-1)*z,d[i]/z);
-                fprintf(fptr," x%d = %.0lf /%.0lf = %lf",i+1,(-1)*d[i],(-1)*z,d[i]/z);
+                fprintf(fptr,"\t\t x%d = %.0lf /%.0lf = %lf",i+1,(-1)*d[i],(-1)*z,d[i]/z);
             }
             else{
                 printf(" x%d = %lf",i+1,d[i]/z);
-                fprintf(fptr," x%d = %lf",i+1,d[i]/z);
+                fprintf(fptr,"\t\t x%d = %lf",i+1,d[i]/z);
             }
         }
 
@@ -279,94 +237,8 @@ while(i<(n-1)){
     else goto B;
 
     fileworks:
-        fi=0;i=0;
-       fi=lipage(fptr);
-       j=fi%5;
-       fi/=5;
-        while(1){
-       if(fi==0 && j==0){
-       logo();
-        printf("\t\t\t\t\t\tNo History\n\t\t\t\t\tPress any key to go back");
-        getch();
-        goto B;
-       }
-       else if(fi==0){
-             logo();
-             lineb(15,90); printf("\n");line(15,0);
-            printf("Back to menu-> Press any key\n");
-             lineb(15,90); printf("\n"); line(15,0);
-            printf("Page %d of %d\n",i+1,j==0? fi:fi+1);
-            lin(fptr,5,j,fi);
-              fic=getch();
-             goto B;
-       }
-
-       else if(i==0 && j==0){
-        logo();
-        lineb(15,90); printf("\n"); lineb(15,0);
-        printf("Back to menu->Press any key\n");
-        lineb(15,90); printf("\n"); line(15,0);
-        printf("Page %d of %d\n",i+1,j==0? fi:fi+1);
-        lin(fptr,5,0,i+1);
-        fic=getch();
-        goto B;
-       }
-      else if(i==0){
-        logo();
-        lineb(15,90); printf("\n");line(15,0);
-        printf("Next page->Press + \n");
-        lineb(15,90); printf("\n"); lineb(15,0);
-        printf("Back to menu-> any other key\n");
-        lineb(15,90); printf("\n"); line(15,0);
-        printf("Page %d of %d\n",i+1,j==0? fi:fi+1);
-        lin(fptr,5,0,i+1);
-        fic=getch();
-       if(fic=='+') i++;
-       else goto B;
-       }
-       if(i<(fi-1)){
-           logo();
-            lineb(15,90); printf("\n");line(15,0);
-            printf(" Next page->Press + \n\t\tPrevious page->Press -\n");
-            lineb(15,90); printf("\n");     line(15,0);
-            printf("Back to menu-> any other key\n");
-             lineb(15,90); printf("\n"); line(15,0);
-            printf("Page %d of %d\n",i+1,j==0? fi:fi+1);
-            lin(fptr,5,0,i+1);
-              fic=getch();
-            if(fic=='+') i++;
-            else if(fic=='-') i--;
-            else goto B;
-       }
-    if(i==(fi-1)) {
-           logo();
-             lineb(15,90); printf("\n");line(15,0);
-             if(j!=0) printf(" Next page->Press + \n\t\t");
-            printf("Previous page->Press - \n");
-            lineb(15,90); printf("\n");     line(15,0);
-            printf("Back to menu-> any other key\n");
-             lineb(15,90); printf("\n"); line(15,0);
-            printf("Page %d of %d\n",i+1,j==0? fi:fi+1);
-            lin(fptr,5,0,i+1);
-              fic=getch();
-            if(fic=='-') i--;
-            else if (j!=0 && fic=='+') i++;
-            else goto B;
-       }
-       if(i==fi){
-             logo();
-             lineb(15,90); printf("\n");line(15,0);
-            printf("Previous page->Press - \n");
-            lineb(15,90); printf("\n");     line(15,0);
-            printf("Back to menu-> any other key\n");
-             lineb(15,90); printf("\n"); line(15,0);
-            printf("Page %d of %d\n",i+1,j==0? fi:fi+1);
-            lin(fptr,5,j,fi);
-              fic=getch();
-            if(fic=='-') i--;
-            else goto B;
-       }
-        }
+     history(fptr,'l');
+     goto B;
 
 
 
