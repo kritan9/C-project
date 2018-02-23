@@ -252,7 +252,6 @@ void polynomial(){
               while(z!=0){
                 if(compare(temp,rts[z-1])==0) break;
                 z--;
-                 printf(" z=%d ",z);
               }
 
               if(z==0 && j!=0) {
@@ -280,7 +279,6 @@ void polynomial(){
     fprintf(fptr,"]");
      line1(32);
     fclose(fptr);
-    free(rts);
     free(c);
     free(p);
     free(c1);
@@ -301,11 +299,21 @@ void polynomial(){
        j=fi%5;
        fi/=5;
         while(1){
-       if(fi==0){
+       if(fi==0 && j==0){
         clr();
         printf("\t\t\t\t\t\tNo History\n\t\t\t\t\tPress any key to go back");
         getch();
         goto top2;
+       }
+        else if(fi==0){
+           clr();
+             lineb(15,90); printf("\n");line(15,0);
+            printf("Back to menu-> Press any key\n");
+             lineb(15,90); printf("\n"); line(15,0);
+            printf("Page %d of %d\n",i+1,j==0? fi:fi+1);
+            poly(fptr,5,j,fi);
+              fic=getch();
+             goto top2;
        }
 
         if(i==0 && j==0){
