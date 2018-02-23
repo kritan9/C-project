@@ -121,6 +121,8 @@ void Linear(){
       in=(double *)malloc(n*(n+1)*sizeof(double));   //coefficient matrix
       d=(double *)malloc((n+1)*sizeof(double));            //stores determinant of sub matrices
       x=(double *)malloc((n+1)*sizeof(double));           //solution to the equations
+
+      fprintf(fptr,"\n\n\n");
     fprintf(fptr,"~");
    for(i=0;i<n;i++){
         k=0;
@@ -171,8 +173,8 @@ while(i<(n-1)){
     while(k<(n-i)){
              if(compare(var[A*n*n+i*n+i],0)==0){  //checking if the diagonal elements are zero
                 if(p==(n-i)){
-                printf("Infinite or Undefined Solution \n");
-                 fprintf(fptr,"Infinite or Undefined Solution \n");
+                printf("Error! Infinite or Undefined Solution \n");
+                 fprintf(fptr,"Error! Infinite or Undefined Solution \n");
                 goto B;
                 }
                 for(o=0;o<n;o++){
@@ -257,7 +259,7 @@ while(i<(n-1)){
         }
 
     }
-    fprintf(fptr,"\n");
+
     printf("\n");  line(15,90);
     printf("\n\n");
     fclose(fptr);
