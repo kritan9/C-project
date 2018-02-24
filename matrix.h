@@ -1,3 +1,4 @@
+//logo
 void logomat(){
 
     system("cls");
@@ -10,6 +11,7 @@ void logomat(){
 
 }
 
+//determinant
 double determinant(double matrix[20][20], int k){
                double deter=0.0, z=1.0, mt[20][20];
                int a, b, c, x, y;
@@ -45,6 +47,8 @@ double determinant(double matrix[20][20], int k){
                }
                return(deter);
                }
+
+    //cofactor matrix
 void cofac(double comatr[20][20], int f, FILE *fptr){
                double matr[20][20], cofact[20][20];
                int a, b, c, d, x, y;
@@ -72,6 +76,8 @@ void cofac(double comatr[20][20], int f, FILE *fptr){
                }
                trans(comatr, cofact, f);
                }
+
+        //transpose of cofactor matrix and displays inverse
 void trans(double matr[20][20], double m1[20][20], int r,FILE *fptr){
               double inv_matrix[20][20], tran[20][20], d;
               int a,b;
@@ -109,6 +115,7 @@ void trans(double matr[20][20], double m1[20][20], int r,FILE *fptr){
 
 
 void mat(){
+    //variable declaration
     char op;
     FILE *fptr;
     int z,y;
@@ -135,6 +142,7 @@ void mat(){
     else if(op=='3'){goto fileworks;}
     else{goto B;}
 
+    //determinant and inverse
    DET:
                 logomat();
                 fptr=fopen("matrix.txt","a+");
@@ -150,6 +158,7 @@ void mat(){
                 printf("Enter the elements of %d X %d matrix : \n", odr ,odr);
                 lineb(15,90);
                 printf("\n"); line(15,0);
+
                 //taking input of matrix
                 for(a=0;a<odr;++a){
                 for(b=0;b<odr;++b){
@@ -208,7 +217,7 @@ void mat(){
 
 
 
-
+//transpose
 
     TRAN:
         logomat();
@@ -219,6 +228,7 @@ void mat(){
     lineb(15,90);printf("\n"); line(15,0);
     scanf("%d %d", &r, &c);
     printf("\n\n"); lineb(15,90); printf("\n"); line(15,0);
+
 
     // Storing elements of the matrix
     printf("Enter elements of matrix:\n");
@@ -233,6 +243,8 @@ void mat(){
     printf("\n\n");
     lineb(15,90);printf("\n"); lineb(15,0);
     fprintf(fptr,"~\t\t");
+
+
     // Displaying the matrix a[][] */
     printf("Entered Matrix is:\n");
     lineb(15,90);printf("\n");

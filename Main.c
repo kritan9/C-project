@@ -15,7 +15,7 @@
 #include "stat.h"
 #include "matrix.h"
 
-
+//This is the main program
 int main(){
     int i,j,k;
     char x;
