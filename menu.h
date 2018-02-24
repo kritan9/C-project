@@ -54,6 +54,16 @@ void lineb(int a,int b){
     }
 }
 
+void linef(int a,int b,FILE *fptr){
+    fprintf(fptr,"\n");
+    int i;
+    for(i=0;i<(a+b);i++){
+        if(i<a) fprintf(fptr," ");
+        else fprintf(fptr,"-");
+    }
+    fprintf(fptr,"\n");
+}
+
 //Infinity Logo
  void infinity(int n){
         int i,j,k;

@@ -107,7 +107,7 @@ fprintf(fptr,"\t\t\tSTANDARD ERROR = %.3f\n",error);
 //prints the range of observation
  line(15,90);  printf("\n"); line(15,0);
 printf("Mean value of Observation = %.2f %c %.3f",av,241,error);
-fprintf(fptr,"\t\t\tMean value of Observation = %.2f %c %.3f\n\n\n",av,241,error);
+fprintf(fptr,"\t\t\tMean value of Observation = %.2f %c %.3f\n",av,241,error); linef(15,90,fptr);  fprintf(fptr,"\n");
  printf("\n");
   line(15,90);  printf("\n\n");
 
