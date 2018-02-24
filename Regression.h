@@ -125,7 +125,7 @@ void regression(){
     printf("Coefficient of correlation = %lf\n",r);                                 line(15,90); printf("\n\n");
 
     fprintf(fptr,"\t\t\tEquation of best fit line is: y = %.6lf x%c%.6lf ",m,c<0? ' ':'+',c);
-    fprintf(fptr,"\n\t\t\tCoefficient of correlation = %lf\n\n",r);
+    fprintf(fptr,"\n\t\t\tCoefficient of correlation = %lf\n",r); linef(15,90,fptr); fprintf(fptr,"\n");
     fclose(fptr);
 
      printf("\n");

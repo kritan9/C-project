@@ -5,7 +5,7 @@ void logopoly(){
     infinity(50);
     printf("\n\t\t-------------------------------------------------------------------------------------------------------\n");
     printf("\t\t\t\t\t\tWELCOME TO INFINITY\n");
-    printf("\t\tthe infinitly-termed,non-linear(polynomial) equation solver(if your ram is enough)\n");
+    printf("\t\t\t\tthe infinitly-termed,non-linear(polynomial) equation solver \n");
     printf("\t\t-------------------------------------------------------------------------------------------------------\n");
 }
 
@@ -124,8 +124,8 @@ void polynomial(){
     logopoly();
     printf("\n \t\t\t\t**********************************************************\n");
     printf("\t\t\t\t\tHow to use?\n");
-    printf("\t\t\t\t\tFor a equation(in terms of x):\n\t\t\t\t\t2x^4+x^3-31x^2-26x+24=0\n\t\t\t\t\ttype:\n\t\t\t\t\t2x4 +1x3 -31x2 -26x1 +24x0\n\t\t\t\t\tand press enter.\n");
-    printf("\n\n\t\t\t\t\tDEMO::\n\t\t\t\t\tEnter the number of terms in the function: 5\n\n\t\t\t\t\tf(x)= 2x4 1x3 -31x2 -26x1 24x0\n\n\t\t\t\t\t\t[  -3.561533    -1.500000    0.561553    4.000000  ]\n\n\n");
+    printf("\t\t\t\t\tFor a equation(in terms of x):\n\t\t\t\t\t x^(4.7)-1.92x^(1.5)-2.68x^(3.2) + 5.146x=0\n\t\t\t\t\ttype:\n\t\t\t\t\t1x4.7  -1.92x1.5  -2.68x3.2  5.146x0\n\t\t\t\t\tand press enter.\n");
+    printf("\n\n\t\t\t\t\tDEMO::\n\t\t\t\t\tEnter the number of terms in the function: 4\n\n\t\t\t\t\tf(x)= 1x4.7  -1.92x1.5  -2.68x3.2  5.146x0\n\n\t\t\t\t\t\t[  1.226116    1.929404  ]\n\n\n");
     printf("\t\t\t\t**********************************************************\n");
     line1(32);
     printf("\n\t\tEnter the number of terms in the function: ");
@@ -237,6 +237,7 @@ void polynomial(){
     }
     printf("]");
     fprintf(fptr,"]");
+    linef(15,90,fptr);
      line1(32);
     fclose(fptr);
     free(c);
