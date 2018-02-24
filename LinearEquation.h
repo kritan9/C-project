@@ -80,7 +80,7 @@ void Linear(){
       d=(double *)malloc((n+1)*sizeof(double));            //stores determinant of sub matrices
       x=(double *)malloc((n+1)*sizeof(double));           //solution to the equations
 
-      fprintf(fptr,"\n\n\n");
+      fprintf(fptr,"\n");
     fprintf(fptr,"~");
    for(i=0;i<n;i++){
         k=0;
@@ -217,6 +217,7 @@ while(i<(n-1)){
         }
 
     }
+    linef(15,90,fptr);
 
     printf("\n");  line(15,90);
     printf("\n\n");

@@ -103,7 +103,7 @@ void trans(double matr[20][20], double m1[20][20], int r,FILE *fptr){
 
               }
               line(15,90);
-              fprintf(fptr,"\n\n\n");
+              fprintf(fptr,"\n");linef(15,90,fptr);  fprintf(fptr,"\n\n");
               fclose(fptr);
               }
 
@@ -269,7 +269,7 @@ void mat(){
             if(y==r-1)
                 printf("\n\n");
         }}
-        fprintf(fptr,"\n\n\n");
+        fprintf(fptr,"\n");  linef(15,90,fptr);  fprintf(fptr,"\n\n");
         line(15,90);
         printf("\n\n");
             fclose(fptr);
