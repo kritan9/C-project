@@ -16,7 +16,7 @@ void about(){
     printf("\n\n\n");
     lineb(45,25);
     printf("\n"); line(50,0);
-    printf("Our Core Team\n"); lineb(45,25);
+    printf(" Project Team\n"); lineb(45,25);
 
     strcpy(a[0].s,"->Aman Kumar Gupta   (074BCT503) ");
     strcpy(a[1].s,"->Kritan Banstola    (074BCT516) ");
