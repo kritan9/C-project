@@ -90,12 +90,12 @@ int fpage(FILE *fptr,char x){ //number of pages
     return i;
 }
 
-void history(FILE *fptr,char x){
+void history(FILE *fptr,char x,int l){
     char fic;
     int fi=0,i=0,j;
        fi=fpage(fptr,x);
-       j=fi%5;
-       fi/=5;
+       j=fi%l;
+       fi/=l;
         while(1){
                 //different cases in displaying history
 
@@ -111,7 +111,8 @@ void history(FILE *fptr,char x){
             printf("Back to menu-> Press any key\n");
              lineb(15,90); printf("\n"); line(15,0);
             printf("Page %d of %d\n",i+1,j==0? fi:fi+1);
-            fpos(fptr,5,j,fi,x);
+            printf("\n\n");
+            fpos(fptr,l,j,fi,x);
               fic=getch();
              break;
        }
@@ -124,8 +125,8 @@ void history(FILE *fptr,char x){
         lineb(15,90); printf("\n"); lineb(15,0);
         printf("Back to menu-> any other key\n");
         lineb(15,90); printf("\n"); line(15,0);
-        printf("Page %d of %d\n",i+1,j==0? fi:fi+1);
-        fpos(fptr,5,0,i+1,x);
+        printf("Page %d of %d\n",i+1,j==0? fi:fi+1); printf("\n\n");
+        fpos(fptr,l,0,i+1,x);
         fic=getch();
        if(fic=='+') i++;
        else break;
@@ -137,8 +138,8 @@ void history(FILE *fptr,char x){
             lineb(15,90); printf("\n");     line(15,0);
             printf("Back to menu-> any other key\n");
              lineb(15,90); printf("\n"); line(15,0);
-            printf("Page %d of %d\n",i+1,j==0? fi:fi+1);
-            fpos(fptr,5,0,i+1,x);
+            printf("Page %d of %d\n",i+1,j==0? fi:fi+1); printf("\n\n");
+            fpos(fptr,l,0,i+1,x);
               fic=getch();
             if(fic=='+') i++;
             else if(fic=='-') i--;
@@ -152,8 +153,8 @@ void history(FILE *fptr,char x){
             lineb(15,90); printf("\n");     line(15,0);
             printf("Back to menu-> any other key\n");
              lineb(15,90); printf("\n"); line(15,0);
-            printf("Page %d of %d\n",i+1,j==0? fi:fi+1);
-            fpos(fptr,5,0,i+1,x);
+            printf("Page %d of %d\n",i+1,j==0? fi:fi+1); printf("\n\n");
+            fpos(fptr,l,0,i+1,x);
               fic=getch();
             if(fic=='-') i--;
             else if (j!=0 && fic=='+') i++;
@@ -166,8 +167,8 @@ void history(FILE *fptr,char x){
             lineb(15,90); printf("\n");     line(15,0);
             printf("Back to menu-> any other key\n");
              lineb(15,90); printf("\n"); line(15,0);
-            printf("Page %d of %d\n",i+1,j==0? fi:fi+1);
-            fpos(fptr,5,j,fi,x);
+            printf("Page %d of %d\n",i+1,j==0? fi:fi+1); printf("\n\n");
+            fpos(fptr,l,j,fi,x);
               fic=getch();
             if(fic=='-') i--;
             else break;

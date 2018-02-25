@@ -136,7 +136,7 @@ void sd(){
             else goto B;
 
         fileworks:
-            history(fptr,'s');
+            history(fptr,'s',2);
             goto B;
 
         EOP:

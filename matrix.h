@@ -93,7 +93,6 @@ void trans(double matr[20][20], double m1[20][20], int r,FILE *fptr){
               inv_matrix[a][b]=tran[a][b] / d;
               }
               }
-              fptr=fopen("matrix.txt","a+");
               printf("\n"); line(15,90); printf("\n"); line(15,0);
               printf("The Inverse of matrix is . . . ");
                printf("\n"); line(15,90); printf("\n");
@@ -148,7 +147,7 @@ void mat(){
                 fptr=fopen("matrix.txt","a+");
                 lineb(15,90);
                 printf("\n"); line(15,0);
-                printf("Enter the order of matrix whose inverse you want to find.\n");
+                printf("Enter the order of matrix whose det. & inverse you want to find.\n");
                 lineb(15,90);
                 printf("\n");
                 line(15,0);
@@ -192,10 +191,11 @@ void mat(){
                line(15,90); printf("\n");
                fprintf(fptr,"\t\t\tThe Determinant of the Matrix is : %.2lf\n", deter);
 
-               fclose(fptr);
                if(compare(deter,0.0)==0){
+                     fprintf(fptr,"\n");linef(15,90,fptr);  fprintf(fptr,"\n\n");
+                     fclose(fptr);
                    printf("\n");
-                    lineb(15,90);
+                    lineb(15,90); printf("\n"); line(15,0);
                printf(" Inverse of Matrix is not possible for the matrices having 0 Determinant value !!\n");
                lineb(15,90);
                 printf("\n"); line(15,0); printf("Press any key!\n");
@@ -297,7 +297,7 @@ void mat(){
 
 
         fileworks:
-        history(fptr,'m');
+        history(fptr,'m',2);
         goto B;
 
 

@@ -249,7 +249,7 @@ while(i<(n-1)){
     else goto B;
 
     fileworks:
-     history(fptr,'l');
+     history(fptr,'l',5);
      goto B;
 
 
