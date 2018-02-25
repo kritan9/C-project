@@ -25,8 +25,8 @@ int main(){
     strcpy(a[2].s," 3. Correlation And Equation Of Best fit Line ");
     strcpy(a[3].s," 4. Data Analysis (Standard Deviation And Error)  ");
     strcpy(a[4].s," 5. Matrix Problems ");
-    strcpy(a[5].s," 6.About");
-    strcpy(a[6].s," 7.Exit");
+    strcpy(a[5].s," 6. About");
+    strcpy(a[6].s," 7. Exit");
 
 
 X:
