@@ -34,7 +34,8 @@ int infl(double a){
 void Linear(){
 //Declaration of Variables
    int n;// number of variables
-   int i,j,k=0;
+   int i,j;
+   long long int k=0;
    double l,m;
    double z;
    int r,t;
