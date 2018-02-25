@@ -105,7 +105,7 @@ void history(FILE *fptr,char x){
         getch();
         break;
        }
-       else if(fi==0){
+       else if(fi==0 || (fi==1 && j==0)){
              logo(x);
              lineb(15,90); printf("\n");line(15,0);
             printf("Back to menu-> Press any key\n");
