@@ -1,5 +1,5 @@
 
-
+//logo
 void logopoly(){
     system("cls");
     infinity(50);
@@ -35,6 +35,7 @@ int compare(double a,double b){
 
 void polynomial(){
 
+    //Variables Declaration
     double l,l1=-1000,l2=1000,in=1;
     FILE *fptr;
     int n,i,z,j;
@@ -46,6 +47,7 @@ void polynomial(){
         top2:
         logopoly();
         printf("\t\t\t\t\t\tSelect an option...\n");
+
         //MENUMENU
 
         strcpy(mn[0].s,"1.Start");
@@ -134,7 +136,7 @@ void polynomial(){
     fptr=fopen("polynomial.txt","a+");
 
     double temp;
-   double *c=calloc(n+1,sizeof(double));//array of coefficients
+    double *c=calloc(n+1,sizeof(double));//array of coefficients
     double *p=calloc(n+1,sizeof(double));//array of degrees
     double rts[20];//array for roots
     printf("\n\t\tf(x)= ");
@@ -192,7 +194,9 @@ void polynomial(){
        if(l<0) return -1;
     }
 
+
     j=0;
+    //first iteration
     rts[j]=root(-1000);
     if(compare(rts[j],1010101010)==0)  j=0;
     else j=1;
@@ -239,6 +243,9 @@ void polynomial(){
     fprintf(fptr,"]");
     linef(15,90,fptr);
      line1(32);
+
+      //freeing the dynamically allocated variables
+
     fclose(fptr);
     free(c);
     free(p);

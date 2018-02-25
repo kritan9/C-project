@@ -1,5 +1,7 @@
+//compares floating type numbers
 int compare(double a,double b);
 
+//logo
 void logolinear(){
      system("cls");
    infinity(50);
@@ -30,9 +32,10 @@ int infl(double a){
 
 
 void Linear(){
-
+//Declaration of Variables
    int n;// number of variables
-   int i,j,k=0;
+   int i,j;
+   long long int k=0;
    double l,m;
    double z;
    int r,t;
@@ -46,6 +49,7 @@ void Linear(){
     strcpy(mn[1].s,"2.History");
     strcpy(mn[2].s,"3.Back");
 
+    //main menu of the sub-program
      B:
     logolinear();
      printf("\n\n");
@@ -58,6 +62,7 @@ void Linear(){
     else{goto B;}
 
     Start:
+
     logolinear();
    printf("\nThis program solves linear equations of any number of variables\n How to use?\n-Eg, if you want to solve for 2 variables, say x+y=2 and x-y=0, Enter number of variables 2 then input coefficients in the format\n1 1 2\n1 -1 0\n");
 
@@ -74,7 +79,7 @@ void Linear(){
 
 
       double *var,*in,*d,*x;
-
+//Dynamic Menory Allocation
       var=(double *)malloc((n+1)*n*n*sizeof(double));   //sub matrix required for Cramer's methon
       in=(double *)malloc(n*(n+1)*sizeof(double));   //coefficient matrix
       d=(double *)malloc((n+1)*sizeof(double));            //stores determinant of sub matrices
@@ -82,11 +87,14 @@ void Linear(){
 
       fprintf(fptr,"\n");
     fprintf(fptr,"~");
+
+
+    //Take input of Coefficient Matrix
    for(i=0;i<n;i++){
         k=0;
         for(j=0;j<=n;j++){
 
-            scanf("%lf",&in[i*(n+1)+j]); //take input of coeff. matrix
+            scanf("%lf",&in[i*(n+1)+j]);
            if(j==0 ) fprintf(fptr,"\t\t%7.2lf",in[i*(n+1)+j]);
            else if(j==n)  fprintf(fptr,"%7.2lf",in[i*(n+1)+j]);
            else fprintf(fptr,"%+7.2lf",in[i*(n+1)+j]);
@@ -221,6 +229,9 @@ while(i<(n-1)){
 
     printf("\n");  line(15,90);
     printf("\n\n");
+
+    //freeing the dynamic variables
+
     fclose(fptr);
 
     free(var);
@@ -243,7 +254,7 @@ while(i<(n-1)){
 
 
 
-    EOP:
+    EOP: //end of program
     printf(" ");
 
 }

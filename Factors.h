@@ -2,12 +2,12 @@
 double HCF(double a,double b){
 	double c;
 	while(a!=0 && b!=0){
-		c=(int)round(b)%(int)(round(a));
+		c=(long long int)round(b)%(long long int)(round(a));
 		b=a;
 		a=(double)c;
 	}
 
-	return (b==0)? 1 : b;
+	return (compare(b,0)==0)? 1 : b;
 }
 
 double LCM(double a,double b){

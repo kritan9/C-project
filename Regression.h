@@ -1,3 +1,4 @@
+//logo
 void logoreg(){
      system("cls");
         infinity(50);
@@ -7,6 +8,7 @@ void logoreg(){
     printf("\t\t-----------------------------------------------------------------------------------\n");
 }
 
+//sum of array elements
 double sum(double *x, int n){
     double k=0;
     int i;
@@ -16,6 +18,8 @@ double sum(double *x, int n){
     }
     return k;
 }
+
+//sum of product of elements of two arrays
 double sum2(double *x,double *y,int n){
     double k=0;
     int i;
@@ -27,7 +31,7 @@ double sum2(double *x,double *y,int n){
 
 
 void regression(){
-
+    //variable declaration
     int n,i,j;
      double *x, *y , r , m , c ,r1,r2,r3,r4;
      char op;
@@ -56,6 +60,7 @@ void regression(){
     lineb(15,90);  printf("\n"); line(15,0);
     scanf(" %d",&n);
 
+    //exception
    if(n<=1){
              printf("\n");
             lineb(15,90); printf("\n");line(15,0);

@@ -31,7 +31,7 @@ void fpos(FILE *fptr,int n,int m,int page,char x){ //display history for given p
             break;
 
         }
-        fseek(fptr,-1,2); //current just before
+        fseek(fptr,-1,2); //current just before the end
         int i=0,j=0,k;
         k=ftell(fptr);
 
@@ -97,13 +97,15 @@ void history(FILE *fptr,char x){
        j=fi%5;
        fi/=5;
         while(1){
+                //different cases in displaying history
+
        if(fi==0 && j==0){
        logo(x);
         printf("\t\t\t\t\t\tNo History\n\t\t\t\t\tPress any key to go back");
         getch();
         break;
        }
-       else if(fi==0){
+       else if(fi==0 || (fi==1 && j==0)){
              logo(x);
              lineb(15,90); printf("\n");line(15,0);
             printf("Back to menu-> Press any key\n");
