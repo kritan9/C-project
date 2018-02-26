@@ -262,7 +262,7 @@ void polynomial(){
     }
     //displaying history
     filework:
-       history(fptr,'p',5);
+       history(fptr,'p',4);
         goto top2;
 
     _back:

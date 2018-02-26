@@ -71,7 +71,7 @@ void Linear(){
       printf("\n"); line(15,0);
      printf("Enter the number of variables \n");
     lineb(15,90); printf("\n"); lineb(15,0);
-      scanf(" %d",&n); fflush(stdin);
+      scanf(" %d",&n);
       lineb(15,90);
       printf("\n"); line(15,0);
        printf("Enter the coefficients and constants \n");
@@ -94,7 +94,7 @@ void Linear(){
         k=0;
         for(j=0;j<=n;j++){
 
-            scanf("%lf",&in[i*(n+1)+j]); fflush(stdin);
+            scanf("%lf",&in[i*(n+1)+j]);
            if(j==0 ) fprintf(fptr,"\t\t%7.2lf",in[i*(n+1)+j]);
            else if(j==n)  fprintf(fptr,"%7.2lf",in[i*(n+1)+j]);
            else fprintf(fptr,"%+7.2lf",in[i*(n+1)+j]);
@@ -249,7 +249,7 @@ while(i<(n-1)){
     else goto B;
 
     fileworks:
-     history(fptr,'l',5);
+     history(fptr,'l',4);
      goto B;
 
 

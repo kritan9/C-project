@@ -144,7 +144,7 @@ void regression(){
     else goto B;
 
     fileworks:
-        history(fptr,'r',5);
+        history(fptr,'r',4);
         goto B;
 
     eop: //end of program
