@@ -41,7 +41,8 @@ X:
 
 
     printf("\n\t\t\t");
-    x=getch();
+    x=getch();  fflush(stdin);
+
     if(x=='1') Linear();
     else if(x=='3') regression();
     else if(x=='2') polynomial();

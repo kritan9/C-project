@@ -15,6 +15,7 @@ void logomat(){
 double determinant(double matrix[20][20], int k){
                double deter=0.0, z=1.0, mt[20][20];
                int a, b, c, x, y;
+
                if(k==1)
                {
                return(matrix[0][0]);
@@ -50,6 +51,7 @@ double determinant(double matrix[20][20], int k){
 
     //cofactor matrix
 void cofac(double comatr[20][20], int f, FILE *fptr){
+    if(f>1){
                double matr[20][20], cofact[20][20];
                int a, b, c, d, x, y;
                for(c=0; c<f; ++c){
@@ -74,7 +76,22 @@ void cofac(double comatr[20][20], int f, FILE *fptr){
                cofact[c][d] = pow(-1,c + d) * determinant(matr,f-1);
                }
                }
-               trans(comatr, cofact, f);
+               trans(comatr, cofact, f,fptr);
+    }
+    else if(f==1) {
+
+         printf("\n"); line(15,90); printf("\n"); line(15,0);
+              printf("The Inverse of matrix is . . . ");
+               printf("\n"); line(15,90); printf("\n");line(15,0);
+                printf("\t\t%lf",1/comatr[0][0]);
+
+         fprintf(fptr,"\n\n\t\t\t The Inverse of matrix is . . . \n");
+         fprintf(fptr,"\t\t\t %10.3lf", 1/comatr[0][0]);
+         fprintf(fptr,"\n");linef(15,90,fptr);  fprintf(fptr,"\n\n");
+         fclose(fptr);
+
+
+    }
                }
 
         //transpose of cofactor matrix and displays inverse
