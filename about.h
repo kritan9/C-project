@@ -7,7 +7,7 @@ void about(){
     printf("\t\t-----------------------------------------------------------------------------------\n\n");
     menustr a[3];
     strcpy(a[0].s,"About the Project and Developers");
-    menu(28,60,1,a);
+    menu(28,60,1,a,5);
     printf("\n\n");
     lineb(22,82);
     printf("\n");
@@ -21,7 +21,7 @@ void about(){
     strcpy(a[0].s,"->Aman Kumar Gupta   (074BCT503) ");
     strcpy(a[1].s,"->Kritan Banstola    (074BCT516) ");
     strcpy(a[2].s,"->Prabin Lamichhane  (074BCT523) ");
-    menu(28,60,3,a);
+    menu(28,60,3,a,5);
 
    printf("\n");
     getch();

@@ -32,7 +32,7 @@ double sum2(double *x,double *y,int n){
 
 void regression(){
     //variable declaration
-    int n,i,j;
+    int n,i,j,ar=0;
      double *x, *y , r , m , c ,r1,r2,r3,r4;
      char op;
     FILE *fptr;
@@ -45,8 +45,8 @@ void regression(){
     logoreg();
      printf("\n\n");
      printf("\t\t\t\t\t\tSelect an Option\n");
-     menu(40,30,3,mn);
-    op=getch();
+     menu(40,30,3,mn,ar);
+    op=arrow(&ar,3);
     if(op=='3'){goto eop;}
     else if(op=='1'){}
     else if(op=='2'){goto fileworks;}

@@ -34,7 +34,7 @@ int infl(double a){
 void Linear(){
 //Declaration of Variables
    int n;// number of variables
-   int i,j;
+   int i,j,ar=0;
    long long int k=0;
    double l,m;
    double z;
@@ -54,8 +54,8 @@ void Linear(){
     logolinear();
      printf("\n\n");
      printf("\t\t\t\t\t\tSelect an Option\n");
-     menu(40,30,3,mn);
-    op=getch();
+     menu(40,30,3,mn,ar);
+    op=arrow(&ar,3);
     if(op=='3'){goto EOP;}
     else if(op=='1'){}
     else if(op=='2'){goto fileworks;}

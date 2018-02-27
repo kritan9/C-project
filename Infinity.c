@@ -17,7 +17,7 @@
 
 //This is the main program
 int main(){
-    int i,j,k;
+    int i,j,k,ar=0;
     char x;
     menustr a[7];
     strcpy(a[0].s," 1. Infinite Linear Equation Solver ");
@@ -37,11 +37,11 @@ X:
     printf("\t\t\t\tProject:- Equation Solver, Data Analyzer And Matrix Solver\n");
     printf("\t\t-----------------------------------------------------------------------------------\n");
     printf("\t\t\t\t\t\tSelect an Option\n");
-    menu(28,60,7,a);
+    menu(28,60,7,a,ar);
 
 
     printf("\n\t\t\t");
-    x=getch();  fflush(stdin);
+    x=arrow(&ar,7);
 
     if(x=='1') Linear();
     else if(x=='3') regression();

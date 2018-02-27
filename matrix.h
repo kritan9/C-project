@@ -134,7 +134,7 @@ void mat(){
     //variable declaration
     char op;
     FILE *fptr;
-    int z,y;
+    int z,y,ar=0;
     int d,r,c;
     menustr mn[5];
     double ask[20][20],transposed[20][20];
@@ -150,8 +150,8 @@ void mat(){
     logomat();
      printf("\n\n");
      printf("\t\t\t\t\t\tSelect an Option\n");
-     menu(35,40,4,mn);
-    op=getch();
+     menu(35,40,4,mn,ar);
+    op=arrow(&ar,4);
     if(op=='4'){goto EOP;}
     else if(op=='1'){goto DET;}
      else if(op=='2'){goto TRAN;}

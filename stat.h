@@ -13,7 +13,7 @@ void logostat(){
 void sd(){
     //Declaration of variables
         float *input, *dfm,*sdfm;
-        int i,n=0;
+        int i,n=0,ar=0;
         float sum=0,av,sumsdfm,sd,error;
         char op;
         FILE *fptr;
@@ -26,8 +26,8 @@ void sd(){
             logostat();
             printf("\n\n");
             printf("\t\t\t\t\t\tSelect an Option\n");
-            menu(40,30,3,mn);
-            op=getch();
+            menu(40,30,3,mn,ar);
+            op=arrow(&ar,3);
             if(op=='3'){goto EOP;}
             else if(op=='1'){}
             else if(op=='2'){goto fileworks;}

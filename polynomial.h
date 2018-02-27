@@ -38,7 +38,7 @@ void polynomial(){
     //Variables Declaration
     double l,l1=-1000,l2=1000,in=1;
     FILE *fptr;
-    int n,i,z,j;
+    int n,i,z,j,ar=0,br=0;
     int opt;
     system("cls");
     menustr mn[4];
@@ -54,9 +54,9 @@ void polynomial(){
         strcpy(mn[1].s,"2.Settings");
         strcpy(mn[2].s,"3.History");
         strcpy(mn[3].s,"4.Back");
-        menu(40,30,4,mn);
+        menu(40,30,4,mn,ar);
         printf("\n\t\t\t\t");
-        char op=getche();
+        char op=arrow(&ar,4);
         switch(op){
         case '2':
             top3:
@@ -65,15 +65,15 @@ void polynomial(){
             //MENUMENU
              strcpy(mn[0].s,"1.Enter the approx range of roots.");
             strcpy(mn[1].s,"2.Enter the approx minimum value of difference of two roots.");
-            strcpy(mn[2].s,"                   Press any other key to go back");
-            menu(32,strlen(mn[1].s)+10,3,mn);
+            strcpy(mn[2].s,"    Go Back (Press any key)");
+            menu(32,strlen(mn[1].s)+10,3,mn,br);
             printf("\n\t\t\t\t");
-            char op1=getche();
+            char op1=arrow(&br,3);
             switch(op1){
             case '1':
                 logopoly();
                 strcpy(mn[0].s,"1.Enter the approx range of roots.");
-                menu(32,strlen(mn[0].s)+10,1,mn);
+                menu(32,strlen(mn[0].s)+10,1,mn,20);
                 line1(32);
                 printf("\n\n\t\t\t\tNote: By default the program solves the equation\n\t\t\t\tto give the root between -1000 and 1000.\n");
                 printf("\t\t\t\tSorry for the inconvenience. You can specify the limits here.\n");
@@ -89,7 +89,7 @@ void polynomial(){
             case '2':
                 logopoly();
                 strcpy(mn[0].s,"2.Enter the approx minimum value of difference of two roots.");
-                menu(32,strlen(mn[0].s)+5,1,mn);
+                menu(32,strlen(mn[0].s)+5,1,mn,20);
                 line1(32);
                 printf("\n\n\t\t\t\tNote: By default the program checks increasing and decreasing\n\t\t\t\tnature of curve in an interval of 1 unit.\n");
                 printf("\t\t\t\tie if 3 roots lie within 1 unit interval the program \n\t\t\t\tdetects only one.\n");
@@ -103,8 +103,10 @@ void polynomial(){
                 getch();
                 goto top3;
                 break;
-            default:
+            case '3':
                 goto top2;
+            default:
+                goto top3;
             }
             case '1': break;
 
@@ -253,7 +255,7 @@ void polynomial(){
     free(p1);
     char yn;
     printf("\n\n\t\tNeed another equation solved?(y/anything else):");
-    yn=getche();
+    yn=getch();
     if(yn=='y'||yn=='Y'){
         goto top;
     }

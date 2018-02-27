@@ -4,8 +4,27 @@ typedef struct {
     char s[150];
 } menustr;
 
+char arrow(int *ar,int n){
+    char x,y;
+    x=getch();
+    if(x==-32){
+      y=getch();
+      if(y==72){
+            if(*ar==0) {*ar=n;}
+            *ar=(*ar-1)%n;}
+      else if(y==80) *ar=(*ar+1)%n;
+      return 255;
+    }
+    else {
+     if(x==13) x='1'+*ar;
+       return x;
+    }
+
+}
+
+
 //main menu table
-void menu(int n,int o,int m,menustr *a){  //x coordinate, width, no of Options, structure
+void menu(int n,int o,int m,menustr *a,int ar){  //x coordinate, width, no of Options, structure
     char f[o-2];
     int i,j,k,l=0;
     for(i=0;i<(o-3);i++){
@@ -24,8 +43,10 @@ void menu(int n,int o,int m,menustr *a){  //x coordinate, width, no of Options, 
                 if(i%3==0){ printf("%s",f);
                             j+=strlen(f);
                 }
-                if(i%3==2){printf("%s",a[l].s);
-                            j+=strlen(a[l].s);
+                if(i%3==2){
+                        if(ar!=l) printf("   %s",a[l].s);
+                        else printf(">>>%s",a[l].s);
+                            j+=(3+strlen(a[l].s));
                             l++;
                             }
 
