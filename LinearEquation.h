@@ -64,7 +64,7 @@ void Linear(){
     Start:
 
     logolinear();
-   printf("\nThis program solves linear equations of any number of variables\n How to use?\n-Eg, if you want to solve for 2 variables, say x+y=2 and x-y=0, Enter number of variables 2 then input coefficients in the format\n1 1 2\n1 -1 0\n");
+   printf("\n\t\t\tThis program solves linear equations of any number of variables\n\t\t\t How to use?\n\t\t\t-Eg, if you want to solve for 2 variables, say x+y=2 and x-y=0,\n\t\t\t Enter number of variables 2 then input coefficients in the format\n\t\t\t1\t1\t2\n\t\t\t1\t-1\t0\n");
 
    fptr=fopen("Linear.txt","a+");
       lineb(15,90);
