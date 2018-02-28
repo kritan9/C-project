@@ -1,4 +1,5 @@
 void about(){
+    system("color f9");
     system("cls");
     infinity(50);
     printf("\t\t-----------------------------------------------------------------------------------\n");
@@ -23,6 +24,6 @@ void about(){
     strcpy(a[2].s,"->Prabin Lamichhane  (074BCT523) ");
     menu(28,60,3,a,5);
 
-   printf("\n");
+   printf("\n\n\n\n\nPress any key to go back");
     getch();
 }

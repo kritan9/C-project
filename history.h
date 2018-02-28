@@ -4,6 +4,7 @@ void logo(char x){
    else if(x=='m') logomat();
     else if(x=='s') logostat();
     else if(x=='r') logoreg();
+     system("color F2");
 
 }
 

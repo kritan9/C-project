@@ -3,6 +3,7 @@ int compare(double a,double b);
 
 //logo
 void logolinear(){
+    system("color F1");
      system("cls");
    infinity(50);
    printf("\t\t-----------------------------------------------------------------------------------\n");
