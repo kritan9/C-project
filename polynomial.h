@@ -66,7 +66,7 @@ void polynomial(){
             //MENUMENU
              strcpy(mn[0].s,"1.Enter the approx range of roots.");
             strcpy(mn[1].s,"2.Enter the approx minimum value of difference of two roots.");
-            strcpy(mn[2].s,"    Go Back (Press any key)");
+            strcpy(mn[2].s,"    Go Back  ");
             menu(32,strlen(mn[1].s)+10,3,mn,br);
             printf("\n\t\t\t\t");
             char op1=arrow(&br,3);
