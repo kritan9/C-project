@@ -35,6 +35,7 @@ void sd(){
             else{goto B;}
 
         Start:
+              sum=0,n=0;
         logostat();
         fptr=fopen("statistics.txt","a+");
 
