@@ -18,6 +18,7 @@
 //This is the main program
 int main(){
     system("mode con: cols=120 lines=80");
+       system("title Project Infinity ( Equation Solver, Data Analyzer And Matrix Solver)");
     int i,j,k,ar=0;
     char x;
     menustr a[7];
@@ -31,7 +32,6 @@ int main(){
 
 
 X:
-    system("title Project Infinity ( Equation Solver, Data Analyzer And Matrix Solver)");
     system("color F0");
     system("cls");
     infinity(50);
